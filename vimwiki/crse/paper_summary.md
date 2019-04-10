@@ -1,0 +1,12 @@
+# Paper Summary
+
+The Purdue System of Systems Laboratory (SoSL) has provided significant value-add for many sponsors in the area of medium-fidelity modeling and simulation--as well as novel metric design--for system of systems (SoS) problems.
+These problems frequently touch on common concepts including how best to deploy new systems into an enterprise SoS, how to re-allocate required functions across existing systems, and how to distinguish "good" configurations from "bad" configurations across scenarios or operational conditions.
+As a direct result of these commonalities across projects in the last 10 years, the Purdue SoSL has iteratively developed and refined a simulation engine called the Discrete Agent Framework (DAF). It's current iteration, DAF 2.0, has been successfully applied in several projects across multiple disciplines.
+This framework facilitates rapid development of low- to medium-fidelity simulation and visualization tools that heavily leverage inheritance to 1) be extensible to new and related problems of interest, 2) separate controlled or proprietary work from public research, and 3) provide a well-tested library of functions to prevent dedicating limited project resources to reinventing existing logic.
+
+The proposed paper under development seeks to provide an update to Purdue SoSL capabilities and also showcase the ways in which a flexible computing environment complements SoS research.
+The rapid generation of simulation and visualization tools to tackle problems of interest is independently useful, but is insufficient for providing decision support in the area of SoS analysis and design.
+To fully explore SoS problems it is necessary to capture their structure, behaviors, and system interactions; characterize the design space of interest; and conduct a representative exploration of that design space with respect to metrics of interest to expose the underlying problem structure.
+In a representative multi-target tracking example, this paper will highlight the capability of DAF 2.0 to flesh out the problem space, and also identify the changing computational costs for each phase of SoS analysis across the lifecycle of the example problem.
+At the end of this research effort it should be clear that DAF 2.0 is a well-tailored solution to tackling SoS problems, and that it is further enabled by integration with a flexible computing environment to provide conclusions and insights of interest at a reduced monetary cost.
