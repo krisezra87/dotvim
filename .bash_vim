@@ -1,0 +1,35 @@
+# Set the default editor to vim
+export EDITOR="vim"
+
+# Aliases
+alias vi=vim
+alias :EC="vim ~/.vimrc"
+alias EC="vim ~/.vimrc"
+
+# Functions
+function e {
+    if [ -z "$1" ]; then
+        # Do the current directory
+        if not hash fzf 2>/dev/null; then
+            # if there is no fzf, use vim instead
+            vim .
+        else
+            ez $1
+        fi
+
+    else
+        vim $1
+    fi
+}
+
+ez() {
+  files=()
+  while IFS= read -r -d '' file; do
+    # properly escape paths for matlab and what have you
+    file=$(echo $file | sed "s/\//\/\//g")
+    files+=("$file")
+  done < <(fzf --multi --print0)
+
+  (( ${#files} )) || return
+  "${VISUAL:-${EDITOR:-vim}}" "$@" "${files[@]}"
+}
