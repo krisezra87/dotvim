@@ -14,6 +14,7 @@ fi
 
 mkdir -p ~/.vim
 mv $DIR/* ~/.vim/
+rmdir $DIR
 
 cd ~/.vim
 
