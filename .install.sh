@@ -4,7 +4,7 @@ shopt -s dotglob
 # Get the directory of this file
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
-if [ $(pwd) == $DIR ]; then
+if [ $DIR == ~/.vim ]; then
     echo ".vim is properly located"
 else
     if [ -d ~/.vim ]; then
