@@ -1,4 +1,6 @@
 #!/bin/bash
+echo "Running .vim installer..."
+
 shopt -s dotglob
 
 # Get the directory of this file
