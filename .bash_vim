@@ -1,3 +1,6 @@
+# Set default bash commands to be vi commands (e.g., esc for normal mode)
+set -o vi
+
 # Set the default editor to vim
 export EDITOR="vim"
 
