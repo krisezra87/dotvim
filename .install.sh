@@ -10,11 +10,10 @@ else
     if [ -d ~/.vim ]; then
         mv ~/.vim ~/.vim.old
     fi
+    mkdir -p ~/.vim
+    mv $DIR/* ~/.vim/
+    rmdir $DIR
 fi
-
-mkdir -p ~/.vim
-mv $DIR/* ~/.vim/
-rmdir $DIR
 
 cd ~/.vim
 
