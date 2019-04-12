@@ -6,8 +6,8 @@ export EDITOR="vim"
 
 # Aliases
 alias vi=vim
-alias :EC="vim ~/.vimrc"
-alias EC="vim ~/.vimrc"
+alias :EC="vim ~/.vim/vimrc"
+alias EC="vim ~/.vim/vimrc"
 
 # Functions
 function e {
