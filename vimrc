@@ -58,7 +58,7 @@ augroup END
         Plugin 'tpope/vim-surround'
         Plugin 'unblevable/quick-scope'
         Plugin 'vim-latex/vim-latex'
-        Plugin 'vim-syntastic/syntastic'
+        Plugin 'w0rp/ale'
         Plugin 'sickill/vim-pasta'
         Plugin 'ntpeters/vim-better-whitespace'
         Plugin 'ervandew/supertab'
