@@ -14,10 +14,9 @@ else
     fi
     mkdir -p ~/.vim
     mv $DIR/* ~/.vim/
+    cd ~/.vim
     rmdir $DIR
 fi
-
-cd ~/.vim
 
 echo "source ~/.vim/.bash_vim" >> ~/.bashrc
 
