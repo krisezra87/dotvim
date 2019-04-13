@@ -14,13 +14,13 @@ else
     fi
     mkdir -p ~/.vim
     mv $DIR/* ~/.vim/
-    cd ~/.vim
     rmdir $DIR
 fi
 
 echo "source ~/.vim/.bash_vim" >> ~/.bashrc
 
 # Set up the submodules (Vundle)
+cd ~/.vim
 git submodule init
 git submodule update --remote
 
