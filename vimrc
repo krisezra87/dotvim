@@ -31,11 +31,13 @@ augroup END
             Plugin 'jalvesaq/vimcmdline'
             Plugin 'christoomey/vim-tmux-navigator'
             Plugin 'edkolev/tmuxline.vim'
+            Plugin 'neoclide/coc.nvim'
         elseif g:os == "WINDOWS"
             set rtp+=$HOME/.vim/bundle/Vundle.vim/
             set rtp+=$HOME/.vim/after
             "let &runtimepath=$USERPROFILE.'\.vim,'.&runtimepath
             call vundle#begin('$HOME/.vim/bundle/')
+            Plugin 'ervandew/supertab'
         else
             " DO the same thing we do for linux
             set rtp+=~/.vim/bundle/Vundle.vim
@@ -61,7 +63,6 @@ augroup END
         Plugin 'w0rp/ale'
         Plugin 'sickill/vim-pasta'
         Plugin 'ntpeters/vim-better-whitespace'
-        Plugin 'ervandew/supertab'
         Plugin 'tomtom/tcomment_vim'
         call vundle#end()
 
