@@ -31,18 +31,20 @@ augroup END
             Plugin 'jalvesaq/vimcmdline'
             Plugin 'christoomey/vim-tmux-navigator'
             Plugin 'edkolev/tmuxline.vim'
-            Plugin 'neoclide/coc.nvim'
         elseif g:os == "WINDOWS"
             set rtp+=$HOME/.vim/bundle/Vundle.vim/
             set rtp+=$HOME/.vim/after
             "let &runtimepath=$USERPROFILE.'\.vim,'.&runtimepath
             call vundle#begin('$HOME/.vim/bundle/')
-            Plugin 'ervandew/supertab'
+            "Plugin 'ervandew/supertab'
         else
             " DO the same thing we do for linux
             set rtp+=~/.vim/bundle/Vundle.vim
             call vundle#begin()
+            Plugin 'neoclide/coc.nvim'
         endif
+        Plugin 'neoclide/coc.nvim'
+        Plugin 'neoclide/vim-node-rpc'
         Plugin 'SirVer/ultisnips'
         Plugin 'sheerun/vim-wombat-scheme'
         Plugin 'junegunn/fzf',{'dir':'~/.fzf','do':'./install --all'}
@@ -129,7 +131,11 @@ augroup END
     endif
 
     if has('clipboard')
-        set clipboard=unnamedplus
+        if g:os == "WINDOWS"
+            set clipboard=unnamed
+        elseif g:os == "LINUX"
+            set clipboard=unnamedplus
+        endif
     endif
 
 "-- netrw
