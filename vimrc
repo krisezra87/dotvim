@@ -200,8 +200,8 @@ augroup END
     "inoremap <tab> <c-r>=Smart_TabComplete()<CR>
 
     " Navigate the menu with j or k
-    inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
-    inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
+    " inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
+    " inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
 
     " Vertical Split Buffer Function
     function! VerticalSplitBuffer(buffer)
