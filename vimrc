@@ -41,7 +41,6 @@ augroup END
             " DO the same thing we do for linux
             set rtp+=~/.vim/bundle/Vundle.vim
             call vundle#begin()
-            Plugin 'neoclide/coc.nvim'
         endif
         Plugin 'neoclide/coc.nvim'
         Plugin 'neoclide/vim-node-rpc'
