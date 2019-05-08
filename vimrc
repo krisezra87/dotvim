@@ -34,6 +34,8 @@ augroup END
         elseif g:os == "WINDOWS"
             set rtp+=$HOME/.vim/bundle/Vundle.vim/
             set rtp+=$HOME/.vim/after
+            set rtp+=$HOME/.vim
+
             "let &runtimepath=$USERPROFILE.'\.vim,'.&runtimepath
             call vundle#begin('$HOME/.vim/bundle/')
             "Plugin 'ervandew/supertab'
@@ -121,7 +123,7 @@ augroup END
         augroup END
 
         " Set font
-        set guifont=Fixedsys:h9
+        set guifont=Lucida_Console:h12:cANSI:qDRAFT
 
         " Remove menu bars on gvim
         set guioptions-=m
