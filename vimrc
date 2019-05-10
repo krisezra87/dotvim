@@ -31,22 +31,25 @@ augroup END
             Plugin 'jalvesaq/vimcmdline'
             Plugin 'christoomey/vim-tmux-navigator'
             Plugin 'edkolev/tmuxline.vim'
+            Plugin 'neoclide/coc.nvim'
+            Plugin 'neoclide/vim-node-rpc'
+            Plugin 'SirVer/ultisnips'
         elseif g:os == "WINDOWS"
             set rtp+=$HOME/.vim/bundle/Vundle.vim/
             set rtp+=$HOME/.vim/after
-            set rtp+=$HOME/.vim
+            "set rtp+=$HOME/.vim
 
             "let &runtimepath=$USERPROFILE.'\.vim,'.&runtimepath
             call vundle#begin('$HOME/.vim/bundle/')
             "Plugin 'ervandew/supertab'
+            Plugin 'neoclide/coc.nvim'
+            Plugin 'neoclide/vim-node-rpc'
+            Plugin 'SirVer/ultisnips'
         else
             " DO the same thing we do for linux
             set rtp+=~/.vim/bundle/Vundle.vim
             call vundle#begin()
         endif
-        Plugin 'neoclide/coc.nvim'
-        Plugin 'neoclide/vim-node-rpc'
-        Plugin 'SirVer/ultisnips'
         Plugin 'sheerun/vim-wombat-scheme'
         Plugin 'junegunn/fzf',{'dir':'~/.fzf','do':'./install --all'}
         Plugin 'junegunn/fzf.vim'
