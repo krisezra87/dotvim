@@ -41,7 +41,6 @@ augroup END
 
             "let &runtimepath=$USERPROFILE.'\.vim,'.&runtimepath
             call vundle#begin('$HOME/.vim/bundle/')
-            "Plugin 'ervandew/supertab'
             Plugin 'neoclide/coc.nvim'
             Plugin 'neoclide/vim-node-rpc'
             Plugin 'SirVer/ultisnips'
@@ -64,7 +63,7 @@ augroup END
         Plugin 'takac/vim-hardtime'
         Plugin 'tpope/vim-fugitive'
         Plugin 'tpope/vim-surround'
-        Plugin 'unblevable/quick-scope'
+        "Plugin 'unblevable/quick-scope'
         Plugin 'vim-latex/vim-latex'
         Plugin 'w0rp/ale'
         Plugin 'sickill/vim-pasta'
@@ -221,9 +220,6 @@ augroup END
     " Edit this file
     command! EC :e $MYVIMRC
 
-    " Do work with remark.js
-    command! RP :Rp | exe "norm! \<C-^>" | !explorer "%"
-    command! -bar Rp :RemarkPreview
     command! Grip :!grip -b %
 
     nnoremap <leader>gr :Grip<CR>
@@ -244,14 +240,7 @@ augroup END
     nnoremap <silent> <leader>zj :call NextClosedFold('j')<cr>
     nnoremap <silent> <leader>zk :call NextClosedFold('k')<cr>
 
-    " highlight ExtraWhitespace ctermbg=red guibg=red
-    " match ExtraWhitespace /\s\+$/
-    " autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-    " autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-    " autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-    " autocmd BufWinLeave * call clearmatches()
-
-    ".mdify a file
+    " .mdify a file
     command! Mdify :%s/\(\[\S\+\](\S\+\)\(\S\))/\1\2.md)/ge | :%s/.md.md/.md/ge
 
     " For more of these see :H fzf-vim around line 100
