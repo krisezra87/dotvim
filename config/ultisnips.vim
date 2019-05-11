@@ -16,5 +16,5 @@ if g:os == "WINDOWS"
     let g:UltiSnipsUsePythonVersion = 3
     " Note for this to work on gvim for some reason we ned fully qualified
     " path to custom snips
-    "let g:UltiSnipsSnippetDirectories = ["C:/Users/".$USERNAME."/.vim/UltiSnips","UltiSnips"]
+    let g:UltiSnipsSnippetDirectories = ["C:/Users/".$USERNAME."/.vim/UltiSnips","UltiSnips"]
 endif
