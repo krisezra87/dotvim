@@ -34,41 +34,39 @@ augroup END
             Plugin 'neoclide/coc.nvim'
             Plugin 'neoclide/vim-node-rpc'
             Plugin 'SirVer/ultisnips'
+            Plugin 'honza/vim-snippets'
+            Plugin 'unblevable/quick-scope'
         elseif g:os == "WINDOWS"
             set rtp+=$HOME/.vim/bundle/Vundle.vim/
             set rtp+=$HOME/.vim/after
-            "set rtp+=$HOME/.vim
 
-            "let &runtimepath=$USERPROFILE.'\.vim,'.&runtimepath
             call vundle#begin('$HOME/.vim/bundle/')
             Plugin 'neoclide/coc.nvim'
             Plugin 'neoclide/vim-node-rpc'
             Plugin 'SirVer/ultisnips'
+            Plugin 'honza/vim-snippets'
         else
-            " DO the same thing we do for linux
             set rtp+=~/.vim/bundle/Vundle.vim
             call vundle#begin()
         endif
-        Plugin 'sheerun/vim-wombat-scheme'
-        Plugin 'junegunn/fzf',{'dir':'~/.fzf','do':'./install --all'}
-        Plugin 'junegunn/fzf.vim'
-        Plugin 'markonm/traces.vim'
-        Plugin 'vimwiki/vimwiki'
-        Plugin 'airblade/vim-rooter'
         Plugin 'VundleVim/Vundle.vim'
+        Plugin 'sheerun/vim-wombat-scheme'
         Plugin 'djoshea/vim-matlab-fold'
-        Plugin 'honza/vim-snippets'
-        Plugin 'itchyny/lightline.vim'
+        Plugin 'junegunn/fzf',{'dir':'~/.fzf','do':'./install --all'}
+        Plugin 'markonm/traces.vim'
         Plugin 'justinmk/vim-ipmotion'
-        Plugin 'takac/vim-hardtime'
-        Plugin 'tpope/vim-fugitive'
         Plugin 'tpope/vim-surround'
-        "Plugin 'unblevable/quick-scope'
-        Plugin 'vim-latex/vim-latex'
-        Plugin 'w0rp/ale'
         Plugin 'sickill/vim-pasta'
-        Plugin 'ntpeters/vim-better-whitespace'
         Plugin 'tomtom/tcomment_vim'
+        Plugin 'w0rp/ale'
+        Plugin 'junegunn/fzf.vim'
+        Plugin 'itchyny/lightline.vim'
+        Plugin 'ntpeters/vim-better-whitespace'
+        Plugin 'tpope/vim-fugitive'
+        Plugin 'takac/vim-hardtime'
+        Plugin 'vim-latex/vim-latex'
+        Plugin 'airblade/vim-rooter'
+        Plugin 'vimwiki/vimwiki'
         call vundle#end()
 
         " :PluginList       - lists configured plugins
@@ -76,6 +74,13 @@ augroup END
         " :PluginSearch foo - searches for foo; append `!` to refresh local cache
         " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
         " vim +PluginInstall +qall
+        if g:os == "LINUX"
+            so ~/.vim/config/linux_config.vim
+        elseif g:os == "WINDOWS"
+            so ~/.vim/config/windows_config.vim
+        endif
+
+        so ~/.vim/config/generic_config.vim
     endif
 
     filetype plugin indent on

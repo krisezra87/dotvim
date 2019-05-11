@@ -1,0 +1,9 @@
+so ~/.vim/config/ale.vim
+so ~/.vim/config/fzf.vim
+so ~/.vim/config/lightline.vim
+so ~/.vim/config/vim-better-whitespace.vim
+so ~/.vim/config/vim-fugitive.vim
+so ~/.vim/config/vim-hardtime.vim
+so ~/.vim/config/vim-latex.vim
+so ~/.vim/config/vim-rooter.vim
+so ~/.vim/config/vimwiki.vim
