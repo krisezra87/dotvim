@@ -58,6 +58,7 @@ augroup END
         Plugin 'tpope/vim-surround'
         Plugin 'sickill/vim-pasta'
         Plugin 'tomtom/tcomment_vim'
+        Plugin 'majutsushi/tagbar'
         Plugin 'w0rp/ale'
         Plugin 'junegunn/fzf.vim'
         Plugin 'itchyny/lightline.vim'
