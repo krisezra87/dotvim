@@ -126,6 +126,19 @@ augroup END
         set diffopt+=indent-heuristic
     endif
 
+    " Additional configs from itscram/dotvim
+    set splitright
+    set splitbelow
+    set autoread
+    set wrap
+    set si " smart indent
+    set smartcase
+
+    augroup noComment
+        au!
+        au FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+    augroup END
+
     if g:os == "WINDOWS"
         " Configure default window size
         augroup gVimControls
@@ -139,6 +152,11 @@ augroup END
         " Remove menu bars on gvim
         set guioptions-=m
         set guioptions-=T
+        set guioptions-=r
+        set guioptions-=R
+        set guioptions-=l
+        set guioptions-=L
+        set guiheadroom=0
 
     endif
 
