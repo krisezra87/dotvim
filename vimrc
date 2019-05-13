@@ -106,6 +106,9 @@ augroup END
     set ignorecase
     set incsearch
 
+    " Mess with the sign column color
+    "highlight clear SignColumn
+
     " create line wrapping for comments only.
     set formatoptions-=t
 
