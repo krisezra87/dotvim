@@ -7,7 +7,6 @@ let g:UltiSnipsExpandTrigger="<leader><leader>"
 let g:UltiSnipsJumpForwardTrigger="<leader><leader>"
 let g:UltiSnipsJumpBackwardTrigger="<leader>p"
 
-"let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
 " Let UltiSnipsEdit split the window vertically
 let g:UltiSnipsEditSplit="vertical"
 
@@ -18,3 +17,5 @@ if g:os == "WINDOWS"
     " path to custom snips
     let g:UltiSnipsSnippetDirectories = ["C:/Users/".$USERNAME."/.vim/UltiSnips","UltiSnips"]
 endif
+
+nnoremap <leader>ue :UltiSnipsEdit<CR>
