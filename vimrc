@@ -75,13 +75,14 @@ augroup END
         " :PluginSearch foo - searches for foo; append `!` to refresh local cache
         " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
         " vim +PluginInstall +qall
+        so ~/.vim/config/generic_config.vim
+
         if g:os == "LINUX"
             so ~/.vim/config/linux_config.vim
         elseif g:os == "WINDOWS"
             so ~/.vim/config/windows_config.vim
         endif
 
-        so ~/.vim/config/generic_config.vim
     endif
 
     filetype plugin indent on
