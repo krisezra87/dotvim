@@ -5,6 +5,6 @@ so ~/.vim/config/tagbar.vim
 so ~/.vim/config/vim-better-whitespace.vim
 so ~/.vim/config/vim-fugitive.vim
 so ~/.vim/config/vim-hardtime.vim
-so ~/.vim/config/vim-latex.vim
+"so ~/.vim/config/vim-latex.vim
 so ~/.vim/config/vim-rooter.vim
 so ~/.vim/config/vimwiki.vim

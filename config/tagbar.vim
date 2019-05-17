@@ -9,3 +9,7 @@ let g:tagbar_type_matlab= {
     \'v:variables',
     \ ]
     \ }
+
+if g:os == 'WINDOWS'
+   let g:tagbar_ctags_bin='$HOME/ctags.exe'
+endif

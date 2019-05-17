@@ -65,7 +65,7 @@ augroup END
         Plugin 'ntpeters/vim-better-whitespace'
         Plugin 'tpope/vim-fugitive'
         Plugin 'takac/vim-hardtime'
-        Plugin 'vim-latex/vim-latex'
+        "Plugin 'vim-latex/vim-latex'
         Plugin 'airblade/vim-rooter'
         Plugin 'vimwiki/vimwiki'
         call vundle#end()
@@ -158,6 +158,10 @@ augroup END
         set guioptions-=l
         set guioptions-=L
         set guiheadroom=0
+
+        " Setting up ctags stuff
+        "set tags=.git/tags
+        set notr
 
     endif
 
