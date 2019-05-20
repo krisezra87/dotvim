@@ -210,8 +210,6 @@ augroup END
     xnoremap < <gv
     xnoremap > >gv
 
-    nnoremap <leader>b Oimport ipdb; ipdb.set_trace()  #  BREAKPOINT<ESC>
-
     iab teh the
     iab waht what
     iab adn and
