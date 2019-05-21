@@ -135,6 +135,11 @@ augroup END
     set si " smart indent
     set smartcase
 
+    set cursorline
+    set ttimeout
+    set ttimeoutlen=50
+    set showcmd
+
     augroup noComment
         au!
         au FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
