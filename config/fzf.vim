@@ -12,4 +12,4 @@ let g:fzf_buffers_jump=1
 
 nnoremap <leader>f :F<cr>
 nnoremap <leader>b :B<cr>
-nnoremap <leader>l :L<cr>
+" nnoremap <leader>l :L<cr>
