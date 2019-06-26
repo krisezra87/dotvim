@@ -186,13 +186,9 @@ augroup END
     let mapleader="\\"
     let maplocalleader="\\"
 
-    inoremap <c-s> <Esc>:up<CR>
-    nnoremap <c-s> :up<CR>
+    let g:netrw_altfile=1
 
-    " nnoremap <C-H> :TmuxNavigateLeft<CR>
-    " nnoremap <C-J> :TmuxNavigateDown<CR>
-    " nnoremap <C-K> :TmuxNavigateUp<CR>
-    " nnoremap <C-L> :TmuxNavigateRight<CR>
+    nnoremap <BS> <C-^>
     nnoremap <C-J> <C-W>j
     nnoremap <C-K> <C-W>k
     nnoremap <C-H> <C-W>h
