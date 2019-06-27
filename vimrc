@@ -1,11 +1,14 @@
+" VIMRC FILE
+" Preamble {{{
 filetype off
 
 augroup sourceVimrc
     au!
     au BufWritePost .vimrc source %
 augroup END
+" }}}
 
-"-- Environment Config
+" Environment Config {{{
     " Sets only once the value of g:os to the running environment
     " from romainl
     " https://gist.github.com/romainl/4df4cde3498fada91032858d7af213c2
@@ -21,8 +24,9 @@ augroup END
     endfunction
 
     call GetEnv()
+" }}}
 
-"-- Plugin Options
+" Plugin Options {{{
     if isdirectory(expand('~/.vim/bundle/Vundle.vim'))
         " Use g:os to pick the rtp and load packages
         if g:os == "LINUX"
@@ -89,8 +93,9 @@ augroup END
 
     "Fix the matlab plugin stuff so it works in matching
     runtime $VIMRUNTIME/macros/matchit.vim
+" }}}
 
-"-- VIM Options
+" VIM Options {{{
     syntax on
     set visualbell
     set number
@@ -177,12 +182,14 @@ augroup END
             set clipboard=unnamedplus
         endif
     endif
+" }}}
 
-"-- netrw
+" netrw {{{
     let g:netrw_liststyle = 4
     let g:netrw_banner = 0
+" }}}
 
-"-- Mappings
+" Mappings {{{
     let mapleader="\\"
     let maplocalleader="\\"
 
@@ -220,16 +227,18 @@ augroup END
 
     "enable fast sorting
     "xnoremap <leader>s :sort<cr>
+" }}}
 
-"-- Color Scheme and Status Line
+" Color Scheme and Status Line {{{
     set laststatus=2
     set noshowmode
 
     if &runtimepath=~'vim-wombat-scheme' && (g:os == "WINDOWS" || g:os == "LINUX")
         colorscheme wombat
     endif
+"}}}
 
-"-- Commands and Functions
+" Commands and Functions {{{
     " Make an attempt at smart tab completion from custom function
     "inoremap <tab> <c-r>=Smart_TabComplete()<CR>
 
@@ -285,3 +294,6 @@ augroup END
         \ {'source': map(range(1, bufnr('$')), 'bufname(v:val)')}, <bang>0))
 
     command! Q :q
+" }}}
+
+" vim:foldmethod=marker:foldlevel=0
