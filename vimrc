@@ -54,6 +54,7 @@ augroup END
             call vundle#begin()
         endif
         Plugin 'VundleVim/Vundle.vim'
+        Plugin 'michaeljsmith/vim-indent-object'
         Plugin 'sheerun/vim-wombat-scheme'
         Plugin 'djoshea/vim-matlab-fold'
         Plugin 'junegunn/fzf',{'dir':'~/.fzf','do':'./install --all'}
