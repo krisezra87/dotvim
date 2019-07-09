@@ -202,6 +202,7 @@ augroup END
     nnoremap <C-H> <C-W>h
     nnoremap <C-L> <C-W>l
     nnoremap cp :let @" = expand("%")<cr>
+    nnoremap <Space> za
 
     if version > 740
         tnoremap <C-J> <C-W>j
