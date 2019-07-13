@@ -40,6 +40,7 @@ augroup END
             Plugin 'SirVer/ultisnips'
             Plugin 'honza/vim-snippets'
             Plugin 'unblevable/quick-scope'
+            Plugin 'wellle/targets.vim'
         elseif g:os == "WINDOWS"
             set rtp+=$HOME/.vim/bundle/Vundle.vim/
             set rtp+=$HOME/.vim/after

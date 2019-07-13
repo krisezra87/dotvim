@@ -3,9 +3,6 @@
 " Maintainer:	Fabrice Guy <fabrice.guy at gmail dot com>
 " Last Changed: 2010 May 19
 
-nnoremap <buffer> <c-r> I% <c-o>^<esc>
-nnoremap <buffer> <c-t> ^f%dw%^
-
 if exists("b:did_ftplugin")
   finish
 endif
