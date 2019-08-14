@@ -126,13 +126,16 @@ augroup END
     " Fix backspace behaviors to 'normal'
     set backspace=indent,eol,start
 
-    if version > 810
+    set diffopt=vertical,context:3,foldcolumn:1,filler
+
+    if version > 800
         " Use patience algorithm for vimdiff
-        set diffopt+=algorithm:patience
+        set diffopt+=algorithm:histogram
 
         " If we want to use the indent heuristic instead, uncomment this guy
         set diffopt+=indent-heuristic
     endif
+
 
     " Additional configs from itscram/dotvim
     set splitright
