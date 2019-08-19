@@ -8,3 +8,4 @@ so ~/.vim/config/vim-hardtime.vim
 "so ~/.vim/config/vim-latex.vim
 so ~/.vim/config/vim-rooter.vim
 so ~/.vim/config/vimwiki.vim
+so ~/.vim/config/undotree.vim

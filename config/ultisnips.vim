@@ -17,5 +17,3 @@ if g:os == "WINDOWS"
     " path to custom snips
     let g:UltiSnipsSnippetDirectories = ["C:/Users/".$USERNAME."/.vim/UltiSnips","UltiSnips"]
 endif
-
-nnoremap <leader>ue :UltiSnipsEdit<CR>
