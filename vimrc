@@ -74,6 +74,7 @@ augroup END
         "Plugin 'vim-latex/vim-latex'
         Plugin 'airblade/vim-rooter'
         Plugin 'vimwiki/vimwiki'
+        Plugin 'mbbill/undotree'
         call vundle#end()
 
         " :PluginList       - lists configured plugins
