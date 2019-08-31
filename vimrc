@@ -65,7 +65,7 @@ augroup END
         Plugin 'sickill/vim-pasta'
         Plugin 'tomtom/tcomment_vim'
         Plugin 'majutsushi/tagbar'
-        Plugin 'w0rp/ale'
+        Plugin 'dense-analysis/ale'
         Plugin 'junegunn/fzf.vim'
         Plugin 'itchyny/lightline.vim'
         Plugin 'ntpeters/vim-better-whitespace'
@@ -107,6 +107,9 @@ augroup END
     set ruler
     set wildmenu
     set wildmode=longest:full,full
+    set conceallevel=2
+    set encoding=utf-8
+    " hi clear Conceal doesn't work for some reason
 
     set tabstop=4
     set shiftwidth=4
