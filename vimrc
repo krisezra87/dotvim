@@ -1,7 +1,5 @@
 " VIMRC FILE
 " Preamble {{{
-filetype off
-
 augroup sourceVimrc
     au!
     au BufWritePost .vimrc source %
@@ -26,80 +24,73 @@ augroup END
     call GetEnv()
 " }}}
 
+" vim-plug install {{{
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+" }}}
+
 " Plugin Options {{{
-    if isdirectory(expand('~/.vim/bundle/Vundle.vim'))
-        " Use g:os to pick the rtp and load packages
-        if g:os == "LINUX"
-            set rtp+=~/.vim/bundle/Vundle.vim
-            call vundle#begin()
-            Plugin 'jalvesaq/vimcmdline'
-            Plugin 'christoomey/vim-tmux-navigator'
-            Plugin 'edkolev/tmuxline.vim'
-            Plugin 'neoclide/coc.nvim'
-            Plugin 'neoclide/vim-node-rpc'
-            Plugin 'SirVer/ultisnips'
-            Plugin 'honza/vim-snippets'
-            Plugin 'unblevable/quick-scope'
-            Plugin 'wellle/targets.vim'
-        elseif g:os == "WINDOWS"
-            set rtp+=$HOME/.vim/bundle/Vundle.vim/
-            set rtp+=$HOME/.vim/after
-
-            call vundle#begin('$HOME/.vim/bundle/')
-            Plugin 'neoclide/coc.nvim'
-            Plugin 'neoclide/vim-node-rpc'
-            Plugin 'SirVer/ultisnips'
-            Plugin 'honza/vim-snippets'
-        else
-            set rtp+=~/.vim/bundle/Vundle.vim
-            call vundle#begin()
-        endif
-        Plugin 'VundleVim/Vundle.vim'
-        Plugin 'michaeljsmith/vim-indent-object'
-        Plugin 'sheerun/vim-wombat-scheme'
-        Plugin 'djoshea/vim-matlab-fold'
-        Plugin 'junegunn/fzf',{'dir':'~/.fzf','do':'./install --all'}
-        Plugin 'markonm/traces.vim'
-        Plugin 'justinmk/vim-ipmotion'
-        Plugin 'tpope/vim-surround'
-        Plugin 'sickill/vim-pasta'
-        Plugin 'tomtom/tcomment_vim'
-        Plugin 'majutsushi/tagbar'
-        Plugin 'dense-analysis/ale'
-        Plugin 'junegunn/fzf.vim'
-        Plugin 'itchyny/lightline.vim'
-        Plugin 'ntpeters/vim-better-whitespace'
-        Plugin 'tpope/vim-fugitive'
-        Plugin 'takac/vim-hardtime'
-        "Plugin 'vim-latex/vim-latex'
-        Plugin 'airblade/vim-rooter'
-        Plugin 'vimwiki/vimwiki'
-        Plugin 'mbbill/undotree'
-        call vundle#end()
-
-        " :PluginList       - lists configured plugins
-        " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-        " :PluginSearch foo - searches for foo; append `!` to refresh local cache
-        " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-        " vim +PluginInstall +qall
-        so ~/.vim/config/generic_config.vim
-
-        if g:os == "LINUX"
-            so ~/.vim/config/linux_config.vim
-        elseif g:os == "WINDOWS"
-            so ~/.vim/config/windows_config.vim
-        endif
-
+    " Use g:os to pick the rtp and load packages
+    if g:os == "LINUX"
+        call plug#begin('~/.vim/plugged')
+        Plug 'jalvesaq/vimcmdline'
+        Plug 'christoomey/vim-tmux-navigator'
+        Plug 'edkolev/tmuxline.vim'
+        Plug 'neoclide/coc.nvim'
+        Plug 'neoclide/vim-node-rpc'
+        Plug 'SirVer/ultisnips'
+        Plug 'honza/vim-snippets'
+        Plug 'unblevable/quick-scope'
+        Plug 'wellle/targets.vim'
+    elseif g:os == "WINDOWS"
+        call plug#begin('~/.vim/plugged')
+        set rtp+=$HOME/.vim/after
+        Plug 'neoclide/coc.nvim'
+        Plug 'neoclide/vim-node-rpc'
+        Plug 'SirVer/ultisnips'
+        Plug 'honza/vim-snippets'
+    else
+        call plug#begin('~/.vim/plugged')
     endif
+    Plug 'junegunn/vim-plug'
+    Plug 'michaeljsmith/vim-indent-object'
+    Plug 'sheerun/vim-wombat-scheme'
+    Plug 'djoshea/vim-matlab-fold'
+    Plug 'junegunn/fzf',{'dir':'~/.fzf','do':'./install --all'}
+    Plug 'markonm/traces.vim'
+    Plug 'justinmk/vim-ipmotion'
+    Plug 'tpope/vim-surround'
+    Plug 'sickill/vim-pasta'
+    Plug 'tomtom/tcomment_vim'
+    Plug 'majutsushi/tagbar'
+    Plug 'dense-analysis/ale'
+    Plug 'junegunn/fzf.vim'
+    Plug 'itchyny/lightline.vim'
+    Plug 'ntpeters/vim-better-whitespace'
+    Plug 'tpope/vim-fugitive'
+    Plug 'takac/vim-hardtime'
+    Plug 'lervag/vimtex'
+    Plug 'airblade/vim-rooter'
+    Plug 'vimwiki/vimwiki'
+    Plug 'mbbill/undotree'
+    call plug#end()
 
-    filetype plugin indent on
+    so ~/.vim/config/generic_config.vim
+
+    if g:os == "LINUX"
+        so ~/.vim/config/linux_config.vim
+    elseif g:os == "WINDOWS"
+        so ~/.vim/config/windows_config.vim
+    endif
 
     "Fix the matlab plugin stuff so it works in matching
     runtime $VIMRUNTIME/macros/matchit.vim
 " }}}
 
 " VIM Options {{{
-    syntax on
     set visualbell
     set number
     set relativenumber
