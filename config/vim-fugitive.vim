@@ -3,6 +3,7 @@ augroup deleteBuffers
     au BufReadPost fugitive://* set bufhidden=delete
 augroup END
 
+set tags^=./.git/tags;
 " Do some fold magic here for easier navigation with fugitive
 command! GH :Gedit HEAD^
 
