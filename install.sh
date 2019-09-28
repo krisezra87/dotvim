@@ -3,6 +3,7 @@ echo "Running .vim installer..."
 
 # Don't need detached head nonsense
 git checkout master
+OLD=$(pwd)
 
 shopt -s dotglob
 
@@ -20,12 +21,11 @@ else
     rmdir $DIR
 fi
 
-echo "source ~/.vim/.bash_vim" >> ~/.bashrc
-
-# Set up the submodules (Vundle)
 cd ~/.vim
-git submodule init
-git submodule update --remote
+git checkout master
+cd $OLD
 
-# Set up plugin list
-vim +PluginInstall +qall
+# Legacy bash compatibility
+if [ $SHELL = /usr/bin/bash ]
+    echo "source ~/.vim/.shell_vim" >> ~/.bashrc
+fi
