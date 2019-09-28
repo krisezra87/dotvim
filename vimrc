@@ -39,7 +39,7 @@ endif
         Plug 'jalvesaq/vimcmdline'
         Plug 'christoomey/vim-tmux-navigator'
         Plug 'edkolev/tmuxline.vim'
-        Plug 'neoclide/coc.nvim'
+        " Plug 'neoclide/coc.nvim'
         Plug 'neoclide/vim-node-rpc'
         Plug 'SirVer/ultisnips'
         Plug 'honza/vim-snippets'
