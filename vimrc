@@ -74,7 +74,7 @@ endif
     Plug 'takac/vim-hardtime'
     Plug 'lervag/vimtex'
     Plug 'airblade/vim-rooter'
-    Plug 'vimwiki/vimwiki'
+    " Plug 'vimwiki/vimwiki'
     Plug 'mbbill/undotree'
     call plug#end()
 
