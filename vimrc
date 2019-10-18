@@ -201,7 +201,6 @@ endif
     nnoremap <C-H> <C-W>h
     nnoremap <C-L> <C-W>l
     nnoremap cp :let @" = expand("%")<cr>
-    nnoremap <Space> za
 
     if version > 740
         tnoremap <C-J> <C-W>j
@@ -217,17 +216,6 @@ endif
     iab teh the
     iab waht what
     iab adn and
-
-    " " This is now covered by vim-better-whitespace
-    " augroup whitespace
-    "     au!
-    "     au BufWritePre * %s/\s\+$//e
-    " augroup END
-
-    "iab <expr> @today strftime("%y/%m/%d")
-
-    "enable fast sorting
-    "xnoremap <leader>s :sort<cr>
 " }}}
 
 " Color Scheme and Status Line {{{
@@ -244,33 +232,26 @@ endif
 
 " Commands and Functions {{{
     " Make an attempt at smart tab completion from custom function
-    "inoremap <tab> <c-r>=Smart_TabComplete()<CR>
 
-    " Navigate the menu with j or k
-    " inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
-    " inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
-
-    " Vertical Split Buffer Function
-    function! VerticalSplitBuffer(buffer)
-        execute "vert sb" a:buffer
-    endfunction
-
-    " Vertical Split Buffer Mapping
-    command! -nargs=1 Vsb call VerticalSplitBuffer(<f-args>)
-
-    " Close other open buffers
-    command! Cob :up|%bd|e#|bd#
-
-    " Edit this file
+    " A few convenience things to start
+    command! E :e %:h
     command! EC :e $MYVIMRC
-
-    command! Grip :!grip -b %
-
-    nnoremap <leader>gr :Grip<CR>
 
     " Typo fixing
     command! Up :up
     command! Reg :reg
+    command! Q :q
+
+    " Helper functions
+    " Vertical Split Buffer Mapping
+    command! -nargs=1 Vsb call VerticalSplitBuffer(<f-args>)
+    function! VerticalSplitBuffer(buffer)
+        execute "vert sb" a:buffer
+    endfunction
+
+    " Execute grip on an md file
+    command! Grip :!grip -b %
+    nnoremap <leader>gr :Grip<CR>
 
     " Put spaces around equal signs
     command! SpaceAroundEqual :%s/\s\@<!=\+\s\@!/ \0 /g
@@ -287,17 +268,6 @@ endif
     " .mdify a file
     command! Mdify :%s/\(\[\S\+\](\S\+\)\(\S\))/\1\2.md)/ge | :%s/.md.md/.md/ge
 
-    " For more of these see :H fzf-vim around line 100
-    command! F :Files
-    command! C :Commands
-    command! H :Helptags
-    command! T :Tags
-    command! L :Lines
-
-    command! -bang Ls call fzf#run(fzf#wrap('buffers',
-        \ {'source': map(range(1, bufnr('$')), 'bufname(v:val)')}, <bang>0))
-
-    command! Q :q
 " }}}
 
 " vim:foldmethod=marker:foldlevel=0
