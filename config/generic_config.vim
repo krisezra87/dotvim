@@ -9,3 +9,6 @@ so ~/.vim/config/vim-hardtime.vim
 so ~/.vim/config/vim-rooter.vim
 so ~/.vim/config/vimwiki.vim
 so ~/.vim/config/undotree.vim
+so ~/.vim/config/indentLine.vim
+so ~/.vim/config/vim-wordmotion.vim
+so ~/.vim/config/vim-lion.vim

@@ -57,9 +57,15 @@ endif
     endif
     Plug 'junegunn/vim-plug'
     Plug 'michaeljsmith/vim-indent-object'
+    Plug 'chaoren/vim-wordmotion'
     Plug 'sheerun/vim-wombat-scheme'
     Plug 'djoshea/vim-matlab-fold'
     Plug 'junegunn/fzf',{'dir':'~/.fzf','do':'./install --all'}
+    Plug 'nelstrom/vim-visual-star-search'
+    Plug 'tpope/vim-repeat'
+    Plug 'tommcdo/vim-lion'
+    Plug 'Yggdroot/indentLine'
+    Plug 'sheerun/vim-polyglot'
     Plug 'markonm/traces.vim'
     Plug 'justinmk/vim-ipmotion'
     Plug 'tpope/vim-surround'
@@ -267,7 +273,6 @@ endif
 
     " .mdify a file
     command! Mdify :%s/\(\[\S\+\](\S\+\)\(\S\))/\1\2.md)/ge | :%s/.md.md/.md/ge
-
 " }}}
 
 " vim:foldmethod=marker:foldlevel=0

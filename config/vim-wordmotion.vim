@@ -1,0 +1,1 @@
+nmap cw ce
