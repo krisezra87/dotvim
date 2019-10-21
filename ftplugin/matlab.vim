@@ -8,6 +8,11 @@ if exists("b:did_ftplugin")
 endif
 let b:did_ftplugin = 1
 
+augroup matCompiler
+    au!
+    au BufEnter *.m compiler mlint
+augroup END
+
 let s:save_cpo = &cpo
 set cpo-=C
 
@@ -30,7 +35,5 @@ endif
 let b:undo_ftplugin = "setlocal suffixesadd< suffixes< "
       \ . "| unlet! b:browsefilter"
       \ . "| unlet! b:match_words"
-      \ . "| nunmap <c-r>"
-      \ . "| nunmap <c-t>"
 
 let &cpo = s:save_cpo

@@ -82,6 +82,7 @@ endif
     Plug 'airblade/vim-rooter'
     Plug 'vimwiki/vimwiki'
     Plug 'mbbill/undotree'
+    Plug '~/.vim/vim-matlab'
     call plug#end()
 
     so ~/.vim/config/generic_config.vim

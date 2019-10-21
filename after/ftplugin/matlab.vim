@@ -1,4 +1,6 @@
 setlocal includeexpr=MatlabIncludify(v:fname)
+" setlocal foldlevel=12 % Use this for spaces, but what a shitty way to do folds
+setlocal foldlevel=3
 
 function! MatlabIncludify(fname) abort
     let parts = split(a:fname, '\.')[0:-1]
