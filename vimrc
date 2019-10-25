@@ -41,7 +41,7 @@ endif
         Plug 'edkolev/tmuxline.vim'
         Plug 'neoclide/coc.nvim'
         Plug 'neoclide/vim-node-rpc'
-        Plug 'SirVer/ultisnips'
+        Plug 'SirVer/ultisnips', { 'on': [] }
         Plug 'honza/vim-snippets'
         Plug 'unblevable/quick-scope'
         Plug 'wellle/targets.vim'
@@ -50,7 +50,7 @@ endif
         set rtp+=$HOME/.vim/after
         Plug 'neoclide/coc.nvim'
         Plug 'neoclide/vim-node-rpc'
-        Plug 'SirVer/ultisnips'
+        Plug 'SirVer/ultisnips', { 'on': [] }
         Plug 'honza/vim-snippets'
     else
         call plug#begin('~/.vim/plugged')

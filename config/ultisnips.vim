@@ -17,3 +17,13 @@ if g:os == "WINDOWS"
     " path to custom snips
     let g:UltiSnipsSnippetDirectories = ["C:/Users/".$USERNAME."/.vim/UltiSnips","UltiSnips"]
 endif
+
+function! UltiSnipsLazyLoad()
+    let l:my_ft = &filetype
+    call plug#load('ultisnips')
+    let &filetype = l:my_ft
+    imap <silent> <leader><leader> <C-R>=UltiSnips#ExpandSnippetOrJump()<CR>
+    return UltiSnips#ExpandSnippetOrJump()
+endfunction
+
+inoremap <silent> <leader><leader> <C-r>=UltiSnipsLazyLoad()<CR>
