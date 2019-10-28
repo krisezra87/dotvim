@@ -97,6 +97,11 @@ endif
     runtime $VIMRUNTIME/macros/matchit.vim
 " }}}
 
+" VIM Terminal Config {{{
+    nnoremap <leader><space> :botright vert terminal<cr>
+    nnoremap <c-m> :botright vert terminal matlab -nosplash -nodisplay<cr>
+" }}}
+
 " VIM Options {{{
     set visualbell
     set number
@@ -214,6 +219,7 @@ endif
         tnoremap <C-K> <C-W>k
         tnoremap <C-H> <C-W>h
         tnoremap <C-L> <C-W>l
+        tnoremap <Esc> <C-\><C-n>
     endif
 
     " Fix up indents so that indenting a block is easy

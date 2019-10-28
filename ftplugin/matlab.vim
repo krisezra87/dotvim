@@ -13,6 +13,10 @@ augroup matCompiler
     au BufEnter *.m compiler mlint
 augroup END
 
+" For matlab breakpoints using register 9
+nnoremap <c-b> :let @9='dbstop in <c-r>% at <c-r>=line('.')<cr>'<cr><c-w><c-w><c-w>"9<cr>
+nnoremap <c-c> :let @9='dbclear in <c-r>% at <c-r>=line('.')<cr>'<cr><c-w><c-w><c-w>"9<cr>
+
 let s:save_cpo = &cpo
 set cpo-=C
 
