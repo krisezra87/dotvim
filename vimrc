@@ -254,6 +254,19 @@ endif
 "}}}
 
 " Commands and Functions {{{
+    function! PopulateQF(...)
+        let targetfile = a:1
+        let content = system('cat ./' . targetfile)
+        let content = split(content, '\n')
+        let list = []
+        for curLine in content
+            let data = split(curLine, ', ')
+            let dict = {'text': data[0], 'filename': data[1], "lnum": data[2]}
+            call add(list,dict)
+        endfor
+        call setqflist(list)
+    endfunction
+
     function! REPLSend(text)
         " Note: send text in double quotes
         call term_sendkeys(g:last_terminal_id, a:text)
