@@ -94,7 +94,8 @@ endif
     endif
 
     "Fix the matlab plugin stuff so it works in matching
-    runtime $VIMRUNTIME/macros/matchit.vim
+    packadd! matchit
+    " runtime $VIMRUNTIME/macros/matchit.vim
 " }}}
 
 " VIM Terminal Config {{{
