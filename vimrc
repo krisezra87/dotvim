@@ -99,7 +99,11 @@ endif
 
 " VIM Terminal Config {{{
     nnoremap <leader><space> :botright vert terminal<cr>
-    nnoremap <c-m> :botright vert terminal matlab -nosplash -nodisplay<cr>
+    nnoremap <leader>m :LaunchMatlab<cr><c-w>N:set filetype=matlab<cr>i
+    augroup terminalStuff
+        au!
+        au TerminalOpen * let g:last_terminal_id = bufnr("$")
+    augroup END
 " }}}
 
 " VIM Options {{{
@@ -154,7 +158,8 @@ endif
 
     set cursorline
     set ttimeout
-    set ttimeoutlen=50
+    set ttimeoutlen=10
+    set timeoutlen=500
     set showcmd
 
     augroup noComment
@@ -219,7 +224,11 @@ endif
         tnoremap <C-K> <C-W>k
         tnoremap <C-H> <C-W>h
         tnoremap <C-L> <C-W>l
-        tnoremap <Esc> <C-\><C-n>
+        tnoremap <Esc><Esc> <C-\><C-n>
+        tnoremap OD <left>
+        tnoremap OC <right>
+        tnoremap OA <up>
+        tnoremap OB <down>
     endif
 
     " Fix up indents so that indenting a block is easy
@@ -244,7 +253,19 @@ endif
 "}}}
 
 " Commands and Functions {{{
-    " Make an attempt at smart tab completion from custom function
+    function! REPLSend(text)
+        " Note: send text in double quotes
+        call term_sendkeys(g:last_terminal_id, a:text)
+    endfunction
+
+    function! REPLEdit(fname,lineNum)
+        execute "edit" a:fname
+        execute "normal! " . a:lineNum . "G"
+        " Rearrange the windows
+        execute "only | vert sbprev"
+    endfunction
+
+    command! LaunchMatlab :botright vert terminal matlab -nosplash -nodisplay
 
     " A few convenience things to start
     command! E :e %:h

@@ -15,13 +15,13 @@ function e {
         # Do the current directory
         if not hash fzf 2>/dev/null; then
             # if there is no fzf, use vim instead
-            vim .
+            vim --servername VIM .
         else
             ez $1
         fi
 
     else
-        vim $1
+        vim --servername VIM $1
     fi
 }
 
