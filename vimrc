@@ -256,7 +256,6 @@ endif
 " Commands and Functions {{{
     function! PopulateQF(...)
         let targetfile = a:1
-        " let content = system('cat ./' . targetfile)
         let content = system('cat ' . targetfile)
         let content = split(content, '\n')
         let list = []
