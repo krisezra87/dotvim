@@ -14,8 +14,6 @@ augroup matCompiler
 augroup END
 
 " Use open windows if possible
-" set switchbuf=useopen
-" set switchbuf=vsplit
 nnoremap <c-b> :call REPLSend("dbstop in <c-r>% at <c-r>=line('.')<cr><c-v><cr>")<cr>
 nnoremap <c-c> :call REPLSend("dbclear in <c-r>% at <c-r>=line('.')<cr><c-v><cr>")<cr>
 
