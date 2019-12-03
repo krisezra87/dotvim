@@ -12,3 +12,4 @@ so ~/.vim/config/undotree.vim
 so ~/.vim/config/indentLine.vim
 so ~/.vim/config/vim-wordmotion.vim
 so ~/.vim/config/vim-lion.vim
+so ~/.vim/config/vim-polyglot.vim

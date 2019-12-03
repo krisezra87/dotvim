@@ -117,7 +117,6 @@ endif
     set wildmode=longest:full,full
     set conceallevel=2
     set encoding=utf-8
-    " hi clear Conceal doesn't work for some reason
 
     set tabstop=4
     set shiftwidth=4
@@ -125,9 +124,6 @@ endif
 
     set ignorecase
     set incsearch
-
-    " Mess with the sign column color
-    "highlight clear SignColumn
 
     " create line wrapping for comments only.
     set formatoptions-=t
