@@ -56,6 +56,7 @@ endif
         call plug#begin('~/.vim/plugged')
     endif
     Plug 'junegunn/vim-plug'
+    Plug 'vifm/vifm.vim'
     Plug 'michaeljsmith/vim-indent-object'
     Plug 'chaoren/vim-wordmotion'
     Plug 'sheerun/vim-wombat-scheme'
