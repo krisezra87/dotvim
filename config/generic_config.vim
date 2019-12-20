@@ -13,3 +13,4 @@ so ~/.vim/config/indentLine.vim
 so ~/.vim/config/vim-wordmotion.vim
 so ~/.vim/config/vim-lion.vim
 so ~/.vim/config/vim-polyglot.vim
+so ~/.vim/config/vimtex.vim
