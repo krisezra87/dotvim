@@ -2,7 +2,7 @@
 " Preamble {{{
 augroup sourceVimrc
     au!
-    au BufWritePost .vimrc source %
+    au BufWritePost $MYVIMRC nested source $MYVIMRC
 augroup END
 " }}}
 
@@ -33,70 +33,52 @@ endif
 " }}}
 
 " Plugin Options {{{
-    " Use g:os to pick the rtp and load packages
-    if g:os == "LINUX"
-        call plug#begin('~/.vim/plugged')
-        Plug 'jalvesaq/vimcmdline'
-        Plug 'christoomey/vim-tmux-navigator'
-        Plug 'edkolev/tmuxline.vim'
-        Plug 'neoclide/coc.nvim'
-        Plug 'neoclide/vim-node-rpc'
+    call plug#begin('~/.vim/plugged')
+        Plug 'junegunn/vim-plug'
         Plug 'SirVer/ultisnips', { 'on': [] }
         Plug 'honza/vim-snippets'
         Plug 'unblevable/quick-scope'
         Plug 'wellle/targets.vim'
-    elseif g:os == "WINDOWS"
-        call plug#begin('~/.vim/plugged')
-        set rtp+=$HOME/.vim/after
-        Plug 'neoclide/coc.nvim'
-        Plug 'neoclide/vim-node-rpc'
-        Plug 'SirVer/ultisnips', { 'on': [] }
-        Plug 'honza/vim-snippets'
-    else
-        call plug#begin('~/.vim/plugged')
-    endif
-    Plug 'junegunn/vim-plug'
-    Plug 'vifm/vifm.vim'
-    Plug 'michaeljsmith/vim-indent-object'
-    Plug 'chaoren/vim-wordmotion'
-    Plug 'sheerun/vim-wombat-scheme'
-    Plug 'djoshea/vim-matlab-fold'
-    Plug 'junegunn/fzf',{'dir':'~/.fzf','do':'./install --all'}
-    Plug 'nelstrom/vim-visual-star-search'
-    Plug 'tpope/vim-repeat'
-    Plug 'tommcdo/vim-lion'
-    Plug 'Yggdroot/indentLine'
-    Plug 'sheerun/vim-polyglot'
-    Plug 'markonm/traces.vim'
-    " Plug 'justinmk/vim-ipmotion'
-    Plug 'tpope/vim-surround'
-    Plug 'sickill/vim-pasta'
-    Plug 'tomtom/tcomment_vim'
-    Plug 'majutsushi/tagbar'
-    Plug 'dense-analysis/ale'
-    " Plug 'junegunn/fzf.vim'
-    Plug 'itchyny/lightline.vim'
-    Plug 'ntpeters/vim-better-whitespace'
-    Plug 'tpope/vim-fugitive'
-    " Plug 'takac/vim-hardtime'
-    Plug 'lervag/vimtex'
-    Plug 'airblade/vim-rooter'
-    Plug 'vimwiki/vimwiki'
-    Plug 'mbbill/undotree'
-    " Plug '~/.vim/vim-matlab'
+        Plug 'vifm/vifm.vim'
+        Plug 'michaeljsmith/vim-indent-object'
+        Plug 'chaoren/vim-wordmotion'
+        Plug 'sheerun/vim-wombat-scheme'
+        Plug 'djoshea/vim-matlab-fold'
+        Plug 'junegunn/fzf',{'dir':'~/.fzf','do':'./install --all'}
+        Plug 'junegunn/fzf.vim'
+        Plug 'nelstrom/vim-visual-star-search'
+        Plug 'tpope/vim-repeat'
+        Plug 'tommcdo/vim-lion'
+        Plug 'Yggdroot/indentLine'
+        Plug 'markonm/traces.vim'
+        Plug 'tpope/vim-surround'
+        Plug 'sickill/vim-pasta'
+        Plug 'tomtom/tcomment_vim'
+        Plug 'majutsushi/tagbar'
+        Plug 'dense-analysis/ale'
+        Plug 'itchyny/lightline.vim'
+        Plug 'ntpeters/vim-better-whitespace'
+        Plug 'tpope/vim-fugitive'
+        Plug 'lervag/vimtex'
+        Plug 'airblade/vim-rooter'
+        Plug 'vimwiki/vimwiki'
+        Plug 'mbbill/undotree'
+        " Plug '~/.vim/vim-matlab'
+        " Plug 'takac/vim-hardtime'
+        " Plug 'justinmk/vim-ipmotion'
+        " Plug 'jalvesaq/vimcmdline'
+        " Plug 'sheerun/vim-polyglot'
+        " Plug 'christoomey/vim-tmux-navigator'
+        " Plug 'edkolev/tmuxline.vim'
+        " Plug 'neoclide/coc.nvim'
+        " Plug 'neoclide/vim-node-rpc'
     call plug#end()
 
     so ~/.vim/config/generic_config.vim
-
-    if g:os == "LINUX"
-        so ~/.vim/config/linux_config.vim
-    elseif g:os == "WINDOWS"
-        so ~/.vim/config/windows_config.vim
-    endif
+    so ~/.vim/config/linux_config.vim
 
     "Fix the matlab plugin stuff so it works in matching
     packadd! matchit
-    " runtime $VIMRUNTIME/macros/matchit.vim
 " }}}
 
 " VIM Terminal Config {{{
