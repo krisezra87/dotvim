@@ -228,8 +228,13 @@ endif
         colorscheme wombat
     endif
 
-    " Get more color choices from my .zsh theme
+    " Add customized transparency
     highlight CursorLineNr term=bold cterm=bold ctermfg=173 gui=bold
+    highlight Normal guibg=NONE ctermbg=NONE
+    highlight LineNr ctermbg=NONE
+    set colorcolumn=81
+    " Disable the vertical split bar if necessary
+    " highlight VertSplit ctermbg=NONE guibg=NONE
 "}}}
 
 " Commands and Functions {{{
