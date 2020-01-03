@@ -13,6 +13,8 @@ augroup matCompiler
     au BufEnter *.m compiler mlint
 augroup END
 
+call matchadd('ErrorMsg','\%>80v.\+')
+
 " Use open windows if possible
 nnoremap <c-b> :call REPLSend("dbstop in <c-r>% at <c-r>=line('.')<cr><c-v><cr>")<cr>
 nnoremap <c-c> :call REPLSend("dbclear in <c-r>% at <c-r>=line('.')<cr><c-v><cr>")<cr>

@@ -235,7 +235,7 @@ endif
     set colorcolumn=81
     " Disable the vertical split bar if necessary
     highlight VertSplit ctermbg=NONE guibg=NONE
-    call matchadd('ErrorMsg','\%>80v.\+')
+    " call matchadd('ErrorMsg','\%>80v.\+')
     highlight ColorColumn ctermbg=NONE
     highlight CursorLine ctermbg=234
 "}}}
