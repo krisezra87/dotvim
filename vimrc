@@ -306,13 +306,13 @@ endif
     nnoremap <expr><leader>d len(getbufinfo("")[0].windows) > 1 ?
         \ ":close<CR>" :
         \ (bufnr("") == getbufinfo({"buflisted": 1})[-1].bufnr ? ":bp" : ":bn")."<bar>bd #<CR>"
+
 inoremap <expr> <c-x><c-f> fzf#vim#complete#path(
     \ "find . -path '*/\.*' -prune -o -print \| sed '1d;s:^..::'",
     \ fzf#wrap({'dir': expand('%:p:h')}))
 
-inoremap <expr> <c-x><c-m> fzf#vim#complete#path(
-    \ "find . -type f \\( -name '*.m' \\) -print \| sed '1d;s:^..::'",
-    \ fzf#wrap({'dir': expand('%:p:h')}))
+inoremap <expr> <c-x><c-m> fzf#vim#complete(
+    \ "find . -type f \\( -name '*.m' \\) -print \| sed '1d;s:^..::;s/\\/+/./g;s/^+//;s/\\.m$//;s/\\/@.\\+\\//./;s/\\//./g'")
 
 command! Matify :s/\/+/./g|s/+//|s/\.m$//|s/\/@.\+\//.
 " }}}
