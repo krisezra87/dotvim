@@ -100,6 +100,7 @@ endif
     set wildmode=longest:full,full
     set conceallevel=2
     set encoding=utf-8
+    set history=500
 
     set tabstop=4
     set shiftwidth=4
@@ -311,7 +312,7 @@ endif
 "     \ "find . -path '*/\.*' -prune -o -print \| sed '1d;s:^..::'",
 "     \ fzf#wrap({'dir': expand('%:p:h')}))
 
-inoremap <expr> <c-m> fzf#vim#complete(
+inoremap <expr> <c-x><c-m> fzf#vim#complete(
     \ "find . -type f \\( -name '*.m' \\) -print \| sed '1d;s:^..::;s/\\/+/./g;s/^+//;s/\\.m$//;s/\\/@.\\+\\//./;s/\\//./g'")
 
 command! Matify :s/\/+/./g|s/^+//|s/\.m$//|s/\/@.\+\//./|s/\//./g
