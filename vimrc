@@ -40,7 +40,7 @@ endif
         Plug 'unblevable/quick-scope'
         Plug 'wellle/targets.vim'
         Plug 'michaeljsmith/vim-indent-object'
-        Plug 'chaoren/vim-wordmotion'
+        " Plug 'chaoren/vim-wordmotion'
         Plug 'sheerun/vim-wombat-scheme'
         Plug 'djoshea/vim-matlab-fold'
         Plug 'junegunn/fzf',{'dir':'~/.fzf','do':'./install --all'}
@@ -298,8 +298,21 @@ endif
     " Allow some cool cat work of files in Vim
     command! -bar Fcat :cd %:p:h | args*.md
 
-    nnoremap <silent> <leader>zj :call NextClosedFold('j')<cr>
-    nnoremap <silent> <leader>zk :call NextClosedFold('k')<cr>
+    function! NextClosedFold(dir)
+        let cmd = 'norm!z' . a:dir
+        let view = winsaveview()
+        let [l0, l, open] = [0, view.lnum, 1]
+        while l != l0 && open
+            exe cmd
+            let [l0, l] = [l, line('.')]
+            let open = foldclosed(l) < 0
+        endwhile
+        if open
+            call winrestview(view)
+        endif
+    endfunction
+    nnoremap <silent> zj :call NextClosedFold('j')<cr>
+    nnoremap <silent> zk :call NextClosedFold('k')<cr>
 
     " .mdify a file
     command! Mdify :%s/\(\[\S\+\](\S\+\)\(\S\))/\1\2.md)/ge | :%s/.md.md/.md/ge
