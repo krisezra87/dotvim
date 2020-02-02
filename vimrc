@@ -40,7 +40,6 @@ endif
         Plug 'unblevable/quick-scope'
         Plug 'wellle/targets.vim'
         Plug 'michaeljsmith/vim-indent-object'
-        " Plug 'chaoren/vim-wordmotion'
         Plug 'sheerun/vim-wombat-scheme'
         Plug 'djoshea/vim-matlab-fold'
         Plug 'junegunn/fzf',{'dir':'~/.fzf','do':'./install --all'}
@@ -62,6 +61,7 @@ endif
         Plug 'airblade/vim-rooter'
         Plug 'vimwiki/vimwiki'
         Plug 'mbbill/undotree'
+        " Plug 'chaoren/vim-wordmotion'
         " Plug '~/.vim/vim-matlab'
         " Plug 'takac/vim-hardtime'
         " Plug 'justinmk/vim-ipmotion'
@@ -108,6 +108,7 @@ endif
 
     set ignorecase
     set incsearch
+    set breakindent
 
     " create line wrapping for comments only.
     set formatoptions-=t
