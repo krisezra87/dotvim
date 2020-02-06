@@ -287,7 +287,7 @@ endif
     endfunction
 
     " Execute grip on an md file
-    command! Grip :!grip -b %
+    command! Grip :!grip % & qutebrowser 127.0.0.1:6419
     nnoremap <leader>gr :Grip<CR>
 
     " Put spaces around equal signs
