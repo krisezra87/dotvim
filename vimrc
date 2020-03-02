@@ -61,7 +61,7 @@ endif
         Plug 'airblade/vim-rooter'
         Plug 'vimwiki/vimwiki'
         Plug 'mbbill/undotree'
-        " Plug 'chaoren/vim-wordmotion'
+        Plug 'chaoren/vim-wordmotion'
         " Plug '~/.vim/vim-matlab'
         " Plug 'takac/vim-hardtime'
         " Plug 'justinmk/vim-ipmotion'
@@ -322,14 +322,43 @@ endif
         \ ":close<CR>" :
         \ (bufnr("") == getbufinfo({"buflisted": 1})[-1].bufnr ? ":bp" : ":bn")."<bar>bd #<CR>"
 
-" inoremap <expr> <c-x><c-f> fzf#vim#complete#path(
-"     \ "find . -path '*/\.*' -prune -o -print \| sed '1d;s:^..::'",
-"     \ fzf#wrap({'dir': expand('%:p:h')}))
-
 inoremap <expr> <c-x><c-m> fzf#vim#complete(
     \ "find . -type f \\( -name '*.m' \\) -print \| sed '1d;s:^..::;s/\\/+/./g;s/^+//;s/\\.m$//;s/\\/@.\\+\\//./;s/\\//./g'")
 
 command! Matify :s/\/+/./g|s/^+//|s/\.m$//|s/\/@.\+\//./|s/\//./g
+
+" Zettelkasten commands
+
+func! ZettelEdit(...)
+
+  " build the file name
+  let l:fname = expand('~/zettel/') . strftime("%F-%H%M") . '.md'
+
+  " edit the new file
+  exec "e " . l:fname
+
+  " enter the title and timestamp (using ultisnips) in the new file
+  if len(a:000) > 0
+    exec "normal ggO# " . join(a:000) . "\<c-r>=\<c-]>G"
+    exec "normal ozetshort\<c-r>=UltiSnipsLazyLoad()\<CR>"
+  else
+     exec "norm izet\<c-r>=UltiSnipsLazyLoad()\<CR>"
+  endif
+endfunc
+
+command! -nargs=* Zet call ZettelEdit(<f-args>)
+inoremap <expr> <c-x><c-z> fzf#vim#complete(fzf#wrap({
+    \ 'source': 'cat ~/zettest/ztags','options': '--print-query'}))
+
+
+function! s:get_fzf(in)
+    execute 'normal a ' . a:in
+endfunction
+
+command! -bang -nargs=* Ztag call fzf#run({'source': 'cat ~/zettest/ztags','options':'--print-query','sink': function('<sid>get_fzf')})
+
+nnoremap <leader>zt :Ztag<CR>
+
 " }}}
 
 " vim:foldmethod=marker:foldlevel=0
