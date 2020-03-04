@@ -355,7 +355,7 @@ function! s:get_fzf(in)
     execute 'normal a ' . a:in
 endfunction
 
-command! -bang -nargs=* Ztag call fzf#run({'source': 'cat ~/zettest/ztags','options':'--print-query','sink': function('<sid>get_fzf')})
+command! -bang -nargs=* Ztag call fzf#run({'source': 'cat ~/zettel/ztags','options':'--print-query','sink': function('<sid>get_fzf')})
 
 nnoremap <leader>zt :Ztag<CR>
 
