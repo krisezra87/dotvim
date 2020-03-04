@@ -350,7 +350,6 @@ command! -nargs=* Zet call ZettelEdit(<f-args>)
 inoremap <expr> <c-x><c-z> fzf#vim#complete(fzf#wrap({
     \ 'source': 'cat ~/zettel/.ztags','options': '--print-query'}))
 
-
 function! s:get_fzf(in)
     execute 'normal a ' . a:in
 endfunction
