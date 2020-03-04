@@ -348,14 +348,14 @@ endfunc
 
 command! -nargs=* Zet call ZettelEdit(<f-args>)
 inoremap <expr> <c-x><c-z> fzf#vim#complete(fzf#wrap({
-    \ 'source': 'cat ~/zettest/ztags','options': '--print-query'}))
+    \ 'source': 'cat ~/zettel/.ztags','options': '--print-query'}))
 
 
 function! s:get_fzf(in)
     execute 'normal a ' . a:in
 endfunction
 
-command! -bang -nargs=* Ztag call fzf#run({'source': 'cat ~/zettel/ztags','options':'--print-query','sink': function('<sid>get_fzf')})
+command! -bang -nargs=* Ztag call fzf#run({'source': 'cat ~/zettel/.ztags','options':'--print-query','sink': function('<sid>get_fzf')})
 
 nnoremap <leader>zt :Ztag<CR>
 
