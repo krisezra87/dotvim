@@ -41,6 +41,7 @@ endif
         Plug 'wellle/targets.vim'
         Plug 'michaeljsmith/vim-indent-object'
         Plug 'sheerun/vim-wombat-scheme'
+        Plug 'arzg/vim-colors-xcode'
         Plug 'djoshea/vim-matlab-fold'
         Plug 'junegunn/fzf',{'dir':'~/.fzf','do':'./install --all'}
         Plug 'junegunn/fzf.vim'
@@ -62,6 +63,7 @@ endif
         Plug 'vimwiki/vimwiki'
         Plug 'mbbill/undotree'
         Plug 'chaoren/vim-wordmotion'
+        Plug 'pechorin/any-jump.vim'
         " Plug '~/.vim/vim-matlab'
         " Plug 'takac/vim-hardtime'
         " Plug 'justinmk/vim-ipmotion'
@@ -225,21 +227,14 @@ endif
 " Color Scheme and Status Line {{{
     set laststatus=2
     set noshowmode
-
-    if &runtimepath=~'vim-wombat-scheme' && (g:os == "WINDOWS" || g:os == "LINUX")
-        colorscheme wombat
-    endif
-
-    " Add customized transparency
-    highlight CursorLineNr term=bold cterm=bold ctermfg=173 gui=bold
+    colorscheme xcodewwdc
+    " colorscheme wombat
     highlight Normal guibg=NONE ctermbg=NONE
     highlight LineNr ctermbg=NONE
-    set colorcolumn=81
-    " Disable the vertical split bar if necessary
     highlight VertSplit ctermbg=NONE guibg=NONE
-    " call matchadd('ErrorMsg','\%>80v.\+')
-    highlight ColorColumn ctermbg=NONE
-    highlight CursorLine ctermbg=234
+    highlight ColorColumn ctermbg=NONE guibg=NONE
+    highlight EndOfBuffer ctermbg=NONE guibg=NONE
+
 "}}}
 
 " Commands and Functions {{{

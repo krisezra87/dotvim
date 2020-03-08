@@ -29,8 +29,6 @@ ez() {
   files=()
   while IFS= read -r -d '' file; do
     # properly escape paths for matlab and what have you
-    #file=$(echo $file | sed "s/\//\/\//g")
-    # file=$(echo ./$file | sed "s/\+/\\\+/g")
     file=$(echo ./$file)
     files+=("$file")
   done < <(fzf --multi --print0)
