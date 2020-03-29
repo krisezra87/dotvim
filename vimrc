@@ -34,6 +34,7 @@ endif
 
 " Plugin Options {{{
     call plug#begin('~/.vim/plugged')
+        Plug 'gioele/vim-autoswap'
         Plug 'junegunn/vim-plug'
         Plug 'SirVer/ultisnips', { 'on': [] }
         Plug 'honza/vim-snippets'
@@ -63,13 +64,13 @@ endif
         Plug 'vimwiki/vimwiki'
         Plug 'mbbill/undotree'
         Plug 'chaoren/vim-wordmotion'
-        Plug 'pechorin/any-jump.vim'
+        " Plug 'pechorin/any-jump.vim'
         " Plug '~/.vim/vim-matlab'
         " Plug 'takac/vim-hardtime'
         " Plug 'justinmk/vim-ipmotion'
         " Plug 'jalvesaq/vimcmdline'
         " Plug 'sheerun/vim-polyglot'
-        " Plug 'christoomey/vim-tmux-navigator'
+        Plug 'christoomey/vim-tmux-navigator'
         " Plug 'edkolev/tmuxline.vim'
         " Plug 'vifm/vifm.vim'
         Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -234,6 +235,8 @@ endif
     highlight VertSplit ctermbg=NONE guibg=NONE
     highlight ColorColumn ctermbg=NONE guibg=NONE
     highlight EndOfBuffer ctermbg=NONE guibg=NONE
+    highlight Comment cterm=italic
+
 
 "}}}
 

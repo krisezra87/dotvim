@@ -3,6 +3,7 @@ set -o vi
 
 # Set the default editor to vim
 export EDITOR="vim"
+export VIMSERVER=vim
 
 # Aliases
 alias vi=vim
@@ -15,27 +16,20 @@ function e {
         # Do the current directory
         if not hash fzf 2>/dev/null; then
             # if there is no fzf, use vim instead
-            vim --servername VIM .
+            vim --servername $VIMSERVER .
         else
-            ez $1
+            fe $1
         fi
 
     else
-        vim --servername VIM $1
+        vim --servername $VIMSERVER $1
     fi
 }
 
-ez() {
-  files=()
-  while IFS= read -r -d '' file; do
-    # properly escape paths for matlab and what have you
-    file=$(echo ./$file)
-    files+=("$file")
-  done < <(fzf --multi --print0)
-
-  (( ${#files} )) || return
-  "${VISUAL:-${EDITOR:-vim}}" "$@" "${files[@]}"
-}
+fe() (
+  IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
+  [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
+)
 
 function zet() {
     vim "+Zet $*"
