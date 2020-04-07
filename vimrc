@@ -254,8 +254,7 @@ endif
     highlight ColorColumn ctermbg=NONE guibg=NONE
     highlight EndOfBuffer ctermbg=NONE guibg=NONE
     highlight Comment cterm=italic
-
-    set statusline=%<%f\ %h%m%r%{FugitiveStatusline()}%=%-14.(%l,%c%V%)\ %P
+    " set statusline=%<%f\ %h%m%r%{FugitiveStatusline()}%=%-14.(%l,%c%V%)\ %P
 "}}}
 
 " Commands and Functions {{{
