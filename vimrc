@@ -2,7 +2,7 @@
 " Preamble {{{
 augroup sourceVimrc
     au!
-    au BufWritePost $MYVIMRC nested source $MYVIMRC
+    au BufWritePost $MYVIMRC nested source $MYVIMRC | PlugUpdate
 augroup END
 " }}}
 
@@ -254,6 +254,7 @@ endif
     highlight ColorColumn ctermbg=NONE guibg=NONE
     highlight EndOfBuffer ctermbg=NONE guibg=NONE
     highlight Comment cterm=italic
+    highlight CursorLine ctermbg=NONE
     " set statusline=%<%f\ %h%m%r%{FugitiveStatusline()}%=%-14.(%l,%c%V%)\ %P
 "}}}
 
