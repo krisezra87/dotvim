@@ -106,6 +106,7 @@ endif
     set encoding=utf-8
     set shortmess=a
     set history=500
+    set cmdheight=1
 
     set tabstop=4
     set shiftwidth=4
@@ -249,7 +250,7 @@ endif
     set laststatus=2
     set noshowmode
     colorscheme xcodewwdc
-    " colorscheme wombat
+
     highlight Normal guibg=NONE ctermbg=NONE
     highlight LineNr ctermbg=NONE
     highlight VertSplit ctermbg=NONE guibg=NONE
