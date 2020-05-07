@@ -286,8 +286,7 @@ endif
     set statusline+=%#Comment#
     set statusline+=%{&filetype}
     set statusline+=\ \[%{&fileformat}\]
-    set statusline+=\ %p%%
-    set statusline+=\ %l:%-4c
+    set statusline+=\ COL:\ %-4c
 
 "}}}
 
