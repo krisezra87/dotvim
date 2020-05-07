@@ -56,7 +56,7 @@ endif
         Plug 'tomtom/tcomment_vim'
         Plug 'majutsushi/tagbar'
         Plug 'dense-analysis/ale'
-        Plug 'itchyny/lightline.vim'
+        " Plug 'itchyny/lightline.vim'
         Plug 'ntpeters/vim-better-whitespace'
         Plug 'tpope/vim-fugitive'
         Plug 'lervag/vimtex'
@@ -103,6 +103,7 @@ endif
     set wildmode=longest:full,full
     set conceallevel=2
     set encoding=utf-8
+    set shortmess=a
     set history=500
 
     set tabstop=4
@@ -255,7 +256,33 @@ endif
     highlight EndOfBuffer ctermbg=NONE guibg=NONE
     highlight Comment cterm=italic
     highlight CursorLine ctermbg=NONE
-    " set statusline=%<%f\ %h%m%r%{FugitiveStatusline()}%=%-14.(%l,%c%V%)\ %P
+    highlight CursorLineNR cterm=bold ctermbg=NONE
+
+    function! GitInfo()
+        let l:longpath = FugitiveReal()
+        " if empty(l:longpath)
+        "   return ''
+        " endif
+        let l:branch = FugitiveHead()
+        if empty(l:branch)
+          return ''
+        endif
+        return fnamemodify(l:longpath,':~:h:t') . ':' . l:branch
+    endfunction
+
+    set statusline=
+    set statusline+=%#Special#
+    set statusline+=\ %{GitInfo()}
+    set statusline+=%#LineNr#
+    set statusline+=\ %f%r
+    set statusline+=%m
+    set statusline+=%=
+    set statusline+=%#Comment#
+    set statusline+=%{&filetype}
+    set statusline+=\ \[%{&fileformat}\]
+    set statusline+=\ %p%%
+    set statusline+=\ %l:%-4c
+
 "}}}
 
 " Commands and Functions {{{
