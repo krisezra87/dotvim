@@ -2,7 +2,8 @@
 " Preamble {{{
 augroup sourceVimrc
     au!
-    au BufWritePost $MYVIMRC nested source $MYVIMRC | PlugUpdate
+    au BufWritePost $MYVIMRC nested source $MYVIMRC
+    " | PlugUpdate
 augroup END
 " }}}
 
@@ -259,15 +260,19 @@ endif
     highlight CursorLineNR cterm=bold ctermbg=NONE
 
     function! GitInfo()
-        let l:longpath = FugitiveReal()
-        " if empty(l:longpath)
-        "   return ''
-        " endif
+        let l:longpath = FugitiveGitDir()
         let l:branch = FugitiveHead()
         if empty(l:branch)
           return ''
         endif
-        return fnamemodify(l:longpath,':~:h:t') . ':' . l:branch
+        let l:taildir = fnamemodify(l:longpath,':t')
+        if l:taildir ==# '.git'
+            let l:repo = fnamemodify(l:longpath,':~:h:t')
+        else
+            " We have just encountered a submodule
+            let l:repo = l:taildir
+        endif
+        return l:repo . ':' . l:branch
     endfunction
 
     set statusline=
