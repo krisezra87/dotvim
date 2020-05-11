@@ -248,7 +248,6 @@ endif
 
 " Color Scheme and Status Line {{{
     set laststatus=2
-    set noshowmode
     colorscheme xcodewwdc
 
     highlight Normal guibg=NONE ctermbg=NONE
