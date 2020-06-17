@@ -106,7 +106,7 @@ endif
     set encoding=utf-8
     set shortmess=a
     set history=500
-    set cmdheight=1
+    set cmdheight=2
 
     set tabstop=4
     set shiftwidth=4
