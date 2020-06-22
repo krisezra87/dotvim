@@ -248,7 +248,7 @@ endif
 
 " Color Scheme and Status Line {{{
     set laststatus=2
-    colorscheme xcodewwdc
+    silent! colorscheme xcodewwdc
 
     highlight Normal guibg=NONE ctermbg=NONE
     highlight LineNr ctermbg=NONE
@@ -275,17 +275,17 @@ endif
         return l:repo . ':' . l:branch
     endfunction
 
-    set statusline=
-    set statusline+=%#Special#
-    set statusline+=\ %{GitInfo()}
-    set statusline+=%#LineNr#
-    set statusline+=\ %f%r
-    set statusline+=%m
-    set statusline+=%=
-    set statusline+=%#Comment#
-    set statusline+=%{&filetype}
-    set statusline+=\ \[%{&fileformat}\]
-    set statusline+=\ COL:\ %-4c
+    silent! set statusline=
+    silent! set statusline+=%#Special#
+    silent! set statusline+=\ %{GitInfo()}
+    silent! set statusline+=%#LineNr#
+    silent! set statusline+=\ %f%r
+    silent! set statusline+=%m
+    silent! set statusline+=%=
+    silent! set statusline+=%#Comment#
+    silent! set statusline+=%{&filetype}
+    silent! set statusline+=\ \[%{&fileformat}\]
+    silent! set statusline+=\ COL:\ %-4c
 
 "}}}
 
