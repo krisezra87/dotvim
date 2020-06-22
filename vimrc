@@ -259,6 +259,11 @@ endif
     highlight CursorLine ctermbg=NONE
     highlight CursorLineNR cterm=bold ctermbg=NONE
 
+    function! SilentGitInfo()
+        silent! let l:gitInfo = GitInfo()
+        return l:gitInfo
+    endfunction
+
     function! GitInfo()
         let l:longpath = FugitiveGitDir()
         let l:branch = FugitiveHead()
@@ -275,17 +280,17 @@ endif
         return l:repo . ':' . l:branch
     endfunction
 
-    silent! set statusline=
-    silent! set statusline+=%#Special#
-    silent! set statusline+=\ %{GitInfo()}
-    silent! set statusline+=%#LineNr#
-    silent! set statusline+=\ %f%r
-    silent! set statusline+=%m
-    silent! set statusline+=%=
-    silent! set statusline+=%#Comment#
-    silent! set statusline+=%{&filetype}
-    silent! set statusline+=\ \[%{&fileformat}\]
-    silent! set statusline+=\ COL:\ %-4c
+    set statusline=
+    set statusline+=%#Special#
+    set statusline+=\ %{SilentGitInfo()}
+    set statusline+=%#LineNr#
+    set statusline+=\ %f%r
+    set statusline+=%m
+    set statusline+=%=
+    set statusline+=%#Comment#
+    set statusline+=%{&filetype}
+    set statusline+=\ \[%{&fileformat}\]
+    set statusline+=\ COL:\ %-4c
 
 "}}}
 
