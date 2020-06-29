@@ -225,6 +225,12 @@ endif
     nnoremap <C-L> <C-W>l
     nnoremap cp :let @" = expand("%")<cr>
 
+    " Use arrow keys for resizing windows
+    nnoremap <Up> <C-W>+
+    nnoremap <Down> <C-W>-
+    nnoremap <Left> <C-W><
+    nnoremap <Right> <C-W>>
+
     if version > 740
         tnoremap <C-J> <C-W>j
         tnoremap <C-K> <C-W>k
