@@ -8,7 +8,7 @@ setlocal autoindent
 setlocal fileformat=unix
 setlocal encoding=utf-8
 
-nnoremap <buffer> <F5> :up<cr>:py3file %<cr>
+" nnoremap <buffer> <F5> :up<cr>:py3file %<cr>
 if !exists("b:undo_ftplugin") | let b:undo_ftplugin = '' | endif
 let b:undo_ftplugin .= '
     \ | setlocal foldmethod<
@@ -20,5 +20,5 @@ let b:undo_ftplugin .= '
     \ | setlocal encoding<
     \ | setlocal expandtab<
     \ | setlocal autoindent<
-    \ | nunmap <F5>
     \ '
+" \ | nunmap <F5>
