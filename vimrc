@@ -35,6 +35,7 @@ endif
 
 " Plugin Options {{{
     call plug#begin('~/.vim/plugged')
+        Plug 'chrisbra/Colorizer'
         Plug 'gioele/vim-autoswap'
         Plug 'junegunn/vim-plug'
         Plug 'SirVer/ultisnips', { 'on': [] }
@@ -49,7 +50,8 @@ endif
         Plug 'junegunn/fzf.vim'
         Plug 'nelstrom/vim-visual-star-search'
         Plug 'tpope/vim-repeat'
-        Plug 'tommcdo/vim-lion'
+        " Plug 'tommcdo/vim-lion'
+        Plug 'junegunn/vim-easy-align'
         Plug 'Yggdroot/indentLine'
         Plug 'markonm/traces.vim'
         Plug 'tpope/vim-surround'
