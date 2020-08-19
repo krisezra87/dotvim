@@ -35,6 +35,7 @@ endif
 
 " Plugin Options {{{
     call plug#begin('~/.vim/plugged')
+        Plug 'johannesthyssen/vim-signit'
         Plug 'chrisbra/Colorizer'
         Plug 'gioele/vim-autoswap'
         Plug 'junegunn/vim-plug'
@@ -58,7 +59,7 @@ endif
         Plug 'sickill/vim-pasta'
         Plug 'tomtom/tcomment_vim'
         Plug 'majutsushi/tagbar'
-        Plug 'dense-analysis/ale'
+        " Plug 'dense-analysis/ale'
         " Plug 'itchyny/lightline.vim'
         Plug 'ntpeters/vim-better-whitespace'
         Plug 'tpope/vim-fugitive'
@@ -245,6 +246,8 @@ endif
         tnoremap OB <down>
     endif
 
+    nmap <silent><Leader>g :call setbufvar(winbufnr(popup_atcursor(split(system("git log -n 1 -L " . line(".") . ",+1:" . expand("%:p")), "\n"), { "padding": [1,1,1,1], "pos": "botleft", "wrap": 0 })), "&filetype", "git")<CR>
+
     " Fix up indents so that indenting a block is easy
     xnoremap < <gv
     xnoremap > >gv
@@ -340,12 +343,6 @@ endif
     command! Q :q
 
     " Helper functions
-    " Vertical Split Buffer Mapping
-    command! -nargs=1 Vsb call VerticalSplitBuffer(<f-args>)
-    function! VerticalSplitBuffer(buffer)
-        execute "vert sb" a:buffer
-    endfunction
-
     " Execute grip on an md file
     command! Grip :!grip % & qutebrowser 127.0.0.1:6419
     nnoremap <leader>gr :Grip<CR>
@@ -377,13 +374,13 @@ endif
 
     " .mdify a file
     command! Mdify :%s/\(\[\S\+\](\S\+\)\(\S\))/\1\2.md)/ge | :%s/.md.md/.md/ge
-" Close buffer (without closing window)
-    nnoremap <expr><leader>d len(getbufinfo("")[0].windows) > 1 ?
-        \ ":close<CR>" :
-        \ (bufnr("") == getbufinfo({"buflisted": 1})[-1].bufnr ? ":bp" : ":bn")."<bar>bd #<CR>"
+" " Close buffer (without closing window)
+"     nnoremap <expr><leader>d len(getbufinfo("")[0].windows) > 1 ?
+"         \ ":close<CR>" :
+"         \ (bufnr("") == getbufinfo({"buflisted": 1})[-1].bufnr ? ":bp" : ":bn")."<bar>bd #<CR>"
 
 inoremap <expr> <c-x><c-m> fzf#vim#complete(
-    \ "find . -type f \\( -name '*.m' \\) -print \| sed '1d;s:^..::;s/\\/+/./g;s/^+//;s/\\.m$//;s/\\/@.\\+\\//./;s/\\//./g'")
+    \ "find . ~/GIT/daf -type f \\( -name '*.m' \\) -print \| sed '1d;s:^..::;s/^[^+]*+/+/;s/\\/+/./g;s/^+//;s/\\.m$//;s/\\/@.\\+\\//./;s/\\//./g'")
 
 command! Matify :s/\/+/./g|s/^+//|s/\.m$//|s/\/@.\+\//./|s/\//./g
 

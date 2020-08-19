@@ -3,3 +3,4 @@ so ~/.vim/config/vim-tmux-navigator.vim
 so ~/.vim/config/coc.vim
 so ~/.vim/config/ultisnips.vim
 so ~/.vim/config/quick-scope.vim
+so ~/.vim/config/vim-signit.vim
