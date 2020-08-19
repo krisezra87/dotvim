@@ -1,0 +1,5 @@
+let g:signit_initials = 'KE'
+let g:signit_name = 'Kris Ezra'
+let g:signit_extra_1 = 'kris.ezra@gmail.com'
+let g:signit_extra_1 = 'kris.ezra@gmail.com'
+let g:signit_position = 'header'
