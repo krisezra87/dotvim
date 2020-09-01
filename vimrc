@@ -372,17 +372,15 @@ endif
     nnoremap <silent> zj :call NextClosedFold('j')<cr>
     nnoremap <silent> zk :call NextClosedFold('k')<cr>
 
-    " .mdify a file
-    command! Mdify :%s/\(\[\S\+\](\S\+\)\(\S\))/\1\2.md)/ge | :%s/.md.md/.md/ge
-" " Close buffer (without closing window)
-"     nnoremap <expr><leader>d len(getbufinfo("")[0].windows) > 1 ?
-"         \ ":close<CR>" :
-"         \ (bufnr("") == getbufinfo({"buflisted": 1})[-1].bufnr ? ":bp" : ":bn")."<bar>bd #<CR>"
+    " There must be a good way to check this
+    if 1
+        inoremap <expr> <c-x><c-m> fzf#vim#complete(
+            \ "rg --files -g '*.m' . ~/GIT/daf \| sed '1d;s:^..::;s/^[^+]*+/+/;s/\\/+/./g;s/^+//;s/\\.m$//;s/\\/@.\\+\\//./;s/\\//./g'")
+    else
+        inoremap <expr> <c-x><c-m> fzf#vim#complete(
+            \ "find . ~/GIT/daf -type f -name '*.m' \| sed '1d;s:^..::;s/^[^+]*+/+/;s/\\/+/./g;s/^+//;s/\\.m$//;s/\\/@.\\+\\//./;s/\\//./g'")
+    endif
 
-inoremap <expr> <c-x><c-m> fzf#vim#complete(
-    \ "find . ~/GIT/daf -type f \\( -name '*.m' \\) -print \| sed '1d;s:^..::;s/^[^+]*+/+/;s/\\/+/./g;s/^+//;s/\\.m$//;s/\\/@.\\+\\//./;s/\\//./g'")
-
-command! Matify :s/\/+/./g|s/^+//|s/\.m$//|s/\/@.\+\//./|s/\//./g
 
 " Zettelkasten commands
 
@@ -404,16 +402,18 @@ func! ZettelEdit(...)
 endfunc
 
 command! -nargs=* Zet call ZettelEdit(<f-args>)
-inoremap <expr> <c-x><c-z> fzf#vim#complete(fzf#wrap({
-    \ 'source': 'cat ~/zettel/.ztags','options': '--print-query'}))
+inoremap <expr> <c-x><c-z> fzf#vim#complete(fzf#wrap({'source': 'ztags'}))
 
 function! s:get_fzf(in)
     execute 'normal a ' . a:in
 endfunction
 
-command! -bang -nargs=* Ztag call fzf#run({'source': 'cat ~/zettel/.ztags','options':'--print-query','sink': function('<sid>get_fzf')})
-
+command! -bang -nargs=* Ztag call fzf#run({'source': 'ztags','options':'--print-query','sink': function('<sid>get_fzf')})
 nnoremap <leader>zt :Ztag<CR>
+
+" This still doesn't quite work right
+command! -bang -nargs=* Ztitles call fzf#run({'source': 'ztitles','sink': e})
+nnoremap <leader>zs :call :Ztitles<CR>
 
 " }}}
 

@@ -22,6 +22,7 @@ let g:fzf_buffers_jump=1
 nnoremap <leader>f :F<cr>
 nnoremap <leader>b :B<cr>
 nnoremap <leader>d :DAF<cr>
+nnoremap <leader>r :Rg<cr>
 " nnoremap <leader>l :L<cr>
 
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6, 'xoffset': 0.5, 'yoffset': 0.5, 'border': 'rounded' }}
