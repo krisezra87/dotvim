@@ -401,8 +401,9 @@ func! ZettelEdit(...)
   endif
 endfunc
 
+let g:zet_dir = '~/zettel/'
 command! -nargs=* Zet call ZettelEdit(<f-args>)
-inoremap <expr> <c-x><c-z> fzf#vim#complete(fzf#wrap({'source': 'ztags'}))
+inoremap <expr> <c-x><c-z> fzf#vim#complete(fzf#wrap({'source': 'ztags ' . g:zet_dir}))
 
 function! s:get_fzf(in)
     execute 'normal a ' . a:in
@@ -411,9 +412,15 @@ endfunction
 command! -bang -nargs=* Ztag call fzf#run({'source': 'ztags','options':'--print-query','sink': function('<sid>get_fzf')})
 nnoremap <leader>zt :Ztag<CR>
 
+function! s:ztitle_edit(in)
+    let l:parts = split(a:in,' ')
+    let l:fname = l:parts[-1]
+    exec "e " . l:fname
+endfunction
+
 " This still doesn't quite work right
-command! -bang -nargs=* Ztitles call fzf#run({'source': 'ztitles','sink': e})
-nnoremap <leader>zs :call :Ztitles<CR>
+command! -bang -nargs=* Ztitles call fzf#run({'source': 'ztitles ' . g:zet_dir,'sink':function('<sid>ztitle_edit')})
+nnoremap <leader>zs :Ztitles<CR>
 
 " }}}
 
