@@ -10,7 +10,7 @@ so ~/.vim/config/vimwiki.vim
 so ~/.vim/config/undotree.vim
 so ~/.vim/config/indentLine.vim
 so ~/.vim/config/vim-wordmotion.vim
-" so ~/.vim/config/vim-lion.vim
-so ~/.vim/config/vim-easy-align.vim
+so ~/.vim/config/vim-lion.vim
+" so ~/.vim/config/vim-easy-align.vim
 so ~/.vim/config/vimtex.vim
 so ~/.vim/config/vimspector.vim
