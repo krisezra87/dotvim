@@ -409,7 +409,7 @@ function! s:get_fzf(in)
     execute 'normal a ' . a:in
 endfunction
 
-command! -bang -nargs=* Ztag call fzf#run({'source': 'ztags','options':'--print-query','sink': function('<sid>get_fzf')})
+command! -bang -nargs=* Ztag call fzf#run({'source': 'ztags ' . g:zet_dir,'options':'--print-query','sink': function('<sid>get_fzf')})
 nnoremap <leader>zt :Ztag<CR>
 
 function! s:ztitle_edit(in)
@@ -426,6 +426,8 @@ nnoremap <leader>zs :Ztitles<CR>
 " Need to do tag search that continues to open a note
 
 " Need a general search function which does both keyword searching inside of notes.  Conveniently, the title is inside the note body anyway.
+
+" Need to tune up paths for matlab biz above
 
 " }}}
 
