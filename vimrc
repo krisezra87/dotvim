@@ -5,6 +5,12 @@ augroup sourceVimrc
     au BufWritePost $MYVIMRC nested source $MYVIMRC
     " | PlugUpdate
 augroup END
+
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | call coc#util#install() | source $MYVIMRC
+endif
 " }}}
 
 " Environment Config {{{
@@ -25,15 +31,7 @@ augroup END
     call GetEnv()
 " }}}
 
-" vim-plug install {{{
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | call coc#util#install() | source $MYVIMRC
-endif
-" }}}
-
-" Plugin Options {{{
+" Plugins {{{
     call plug#begin('~/.vim/plugged')
         Plug 'johannesthyssen/vim-signit'
         Plug 'chrisbra/Colorizer'
@@ -381,8 +379,9 @@ endif
             \ "find . ~/GIT/daf -type f -name '*.m' \| sed '1d;s:^..::;s/^[^+]*+/+/;s/\\/+/./g;s/^+//;s/\\.m$//;s/\\/@.\\+\\//./;s/\\//./g'")
     endif
 
+" }}}
 
-" Zettelkasten commands
+" Zettelkasten {{{
 
 func! ZettelEdit(...)
 
