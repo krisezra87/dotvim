@@ -418,9 +418,14 @@ function! s:ztitle_edit(in)
     exec "e " . l:fname
 endfunction
 
-" This still doesn't quite work right
 command! -bang -nargs=* Ztitles call fzf#run({'source': 'ztitles ' . g:zet_dir,'sink':function('<sid>ztitle_edit')})
 nnoremap <leader>zs :Ztitles<CR>
+
+" Need to do tag search that returns all relevant titles (Might be that the shell functions give us that.  zlookup_by_tag as a follow to fzf tag search
+
+" Need to do tag search that continues to open a note
+
+" Need a general search function which does both keyword searching inside of notes.  Conveniently, the title is inside the note body anyway.
 
 " }}}
 
