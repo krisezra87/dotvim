@@ -404,12 +404,20 @@ let g:zet_dir = '~/zettel/'
 command! -nargs=* Zet call ZettelEdit(<f-args>)
 inoremap <expr> <c-x><c-z> fzf#vim#complete(fzf#wrap({'source': 'ztags ' . g:zet_dir}))
 
-function! s:get_fzf(in)
-    execute 'normal a ' . a:in
+function! s:write_fzf(in)
+    execute 'normal a' . a:in . ' '
 endfunction
 
-command! -bang -nargs=* Ztag call fzf#run({'source': 'ztags ' . g:zet_dir,'options':'--print-query','sink': function('<sid>get_fzf')})
+function! s:tag_lookup(in)
+    let l:dirs = substitute(system('zlookup_by_tag -s "' . a:in . '" ' . g:zet_dir), '\^@', '\n', 'g')
+    let l:dirs_clean = strtrans(l:dirs)
+    execute 'normal a' . substitute(l:dirs_clean,'\^@','\r','g')
+endfunction
+
+command! -bang -nargs=* Ztag call fzf#run({'source': 'ztags ' . g:zet_dir,'sink': function('<sid>write_fzf')})
 nnoremap <leader>zt :Ztag<CR>
+
+command! -bang -nargs=* ZtagSearch call fzf#run({'source': 'ztags ' . g:zet_dir,'sink': function('<sid>tag_lookup')})
 
 function! s:ztitle_edit(in)
     let l:parts = split(a:in,' ')
