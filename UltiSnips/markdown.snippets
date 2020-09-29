@@ -8,13 +8,15 @@ Attend: KE, $2
 ## Action Items
 endsnippet
 
-# post_jump "if snip.tabstop==2: vim.command('Ztag')"
+# post_jump "if snip.tabstop==3: vim.command('Ztag')"
 snippet zet "Create a zettelkasten note" b
 # ${1:TITLE}
 
 # TAGS $3
 
 ${2:NOTE TEXT}
+
+# RELATED: ${4:HYPERLINK}
 endsnippet
 
 snippet zetshort "Create a zettelkasten note without title" b
@@ -22,4 +24,6 @@ snippet zetshort "Create a zettelkasten note without title" b
 # TAGS $2
 
 ${1:NOTE TEXT}
+
+# RELATED: ${3:HYPERLINK}
 endsnippet
