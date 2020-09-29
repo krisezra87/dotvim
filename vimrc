@@ -382,15 +382,18 @@ endif
 " }}}
 
 " Zettelkasten {{{
+let g:zet_dir = '~/zettel/' "Note that trailing slash is necessary
+let g:zet_file_type = '.md' "Note that leading period is necessary
 
 func! ZettelEdit(...)
 
   " build the file name
-  let l:fname = expand('~/zettel/') . strftime("%F-%H%M") . '.md'
+  let l:fname = g:zet_dir . strftime("%F-%H%M") . g:zet_file_type
 
   " edit the new file
   exec "e " . l:fname
 
+  " Need to put the lazy loading code in here
   " enter the title and timestamp (using ultisnips) in the new file
   if len(a:000) > 0
     exec "normal ggO# " . join(a:000) . "\<c-r>=\<c-]>G"
@@ -400,22 +403,23 @@ func! ZettelEdit(...)
   endif
 endfunc
 
-let g:zet_dir = '~/zettel/'
 command! -nargs=* Zet call ZettelEdit(<f-args>)
+
+" ztag_complete " should this be a function?
 inoremap <expr> <c-x><c-z> fzf#vim#complete(fzf#wrap({'source': 'ztags ' . g:zet_dir}))
 
 function! s:write_fzf(in)
     execute 'normal a' . a:in . ' '
 endfunction
 
+command! -bang -nargs=* ZtagInsert call fzf#run({'source': 'ztags ' . g:zet_dir,'sink': function('<sid>write_fzf')})
+nnoremap <leader>zt :ZtagInsert<CR>
+
 function! s:tag_lookup(in)
     let l:dirs = substitute(system('zlookup_by_tag -s "' . a:in . '" ' . g:zet_dir), '\^@', '\n', 'g')
     let l:dirs_clean = strtrans(l:dirs)
     execute 'normal a' . substitute(l:dirs_clean,'\^@','\r','g')
 endfunction
-
-command! -bang -nargs=* Ztag call fzf#run({'source': 'ztags ' . g:zet_dir,'sink': function('<sid>write_fzf')})
-nnoremap <leader>zt :Ztag<CR>
 
 command! -bang -nargs=* ZtagSearch call fzf#run({'source': 'ztags ' . g:zet_dir,'sink': function('<sid>tag_lookup')})
 
@@ -425,12 +429,14 @@ function! s:ztitle_edit(in)
     exec "e " . l:fname
 endfunction
 
-command! -bang -nargs=* Ztitles call fzf#run({'source': 'ztitles ' . g:zet_dir,'sink':function('<sid>ztitle_edit')})
-nnoremap <leader>zs :Ztitles<CR>
+command! -bang -nargs=* ZtitleSearch call fzf#run({'source': 'ztitles ' . g:zet_dir,'sink':function('<sid>ztitle_edit')})
+nnoremap <leader>zs :ZtitleSearch<CR>
+
+command! -bang -nargs=* ZLookupEdit call fzf#run({'source': 'zlookup_title_by_tag ' . g:zet_dir,'sink':'e'})
+
+nnoremap <leader>zle :ZLookupEdit<CR>
 
 " Need to do tag search that returns all relevant titles (Might be that the shell functions give us that.  zlookup_by_tag as a follow to fzf tag search
-
-" Need to do tag search that continues to open a note
 
 " Need a general search function which does both keyword searching inside of notes.  Conveniently, the title is inside the note body anyway.
 
