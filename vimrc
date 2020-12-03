@@ -33,32 +33,26 @@ endif
 
 " Plugins {{{
     call plug#begin('~/.vim/plugged')
-        Plug 'johannesthyssen/vim-signit'
-        Plug 'chrisbra/Colorizer'
-        Plug 'gioele/vim-autoswap'
         Plug 'junegunn/vim-plug'
+        Plug 'tommcdo/vim-exchange'
+        Plug 'chrisbra/Colorizer'
         Plug 'SirVer/ultisnips', { 'on': [] }
         Plug 'honza/vim-snippets'
         Plug 'unblevable/quick-scope'
         Plug 'wellle/targets.vim'
         Plug 'michaeljsmith/vim-indent-object'
-        Plug 'sheerun/vim-wombat-scheme'
         Plug 'arzg/vim-colors-xcode'
         Plug 'djoshea/vim-matlab-fold'
         Plug 'junegunn/fzf',{'dir':'~/.fzf','do':'./install --all'}
         Plug 'junegunn/fzf.vim'
-        Plug 'nelstrom/vim-visual-star-search'
         Plug 'tpope/vim-repeat'
         Plug 'tommcdo/vim-lion'
-        " Plug 'junegunn/vim-easy-align'
         Plug 'Yggdroot/indentLine'
         Plug 'markonm/traces.vim'
         Plug 'tpope/vim-surround'
         Plug 'sickill/vim-pasta'
         Plug 'tomtom/tcomment_vim'
         Plug 'majutsushi/tagbar'
-        " Plug 'dense-analysis/ale'
-        " Plug 'itchyny/lightline.vim'
         Plug 'ntpeters/vim-better-whitespace'
         Plug 'tpope/vim-fugitive'
         Plug 'lervag/vimtex'
@@ -66,17 +60,23 @@ endif
         Plug 'vimwiki/vimwiki'
         Plug 'mbbill/undotree'
         Plug 'chaoren/vim-wordmotion'
+        Plug 'christoomey/vim-tmux-navigator'
+        Plug 'neoclide/coc.nvim', {'branch': 'release'}
+        Plug 'neoclide/vim-node-rpc'
+        " Plug 'gioele/vim-autoswap'
+        " Plug 'sheerun/vim-wombat-scheme'
+        " Plug 'junegunn/vim-easy-align'
+        " Plug 'nelstrom/vim-visual-star-search'
         " Plug 'pechorin/any-jump.vim'
         " Plug '~/.vim/vim-matlab'
         " Plug 'takac/vim-hardtime'
         " Plug 'justinmk/vim-ipmotion'
         " Plug 'jalvesaq/vimcmdline'
         " Plug 'sheerun/vim-polyglot'
-        Plug 'christoomey/vim-tmux-navigator'
+        " Plug 'dense-analysis/ale'
+        " Plug 'itchyny/lightline.vim'
         " Plug 'edkolev/tmuxline.vim'
         " Plug 'vifm/vifm.vim'
-        Plug 'neoclide/coc.nvim', {'branch': 'release'}
-        Plug 'neoclide/vim-node-rpc'
     call plug#end()
 
     so ~/.vim/config/generic_config.vim
@@ -340,19 +340,8 @@ endif
     command! Reg :reg
     command! Q :q
 
-    " Helper functions
-    " Execute grip on an md file
-    command! Grip :!grip % & qutebrowser 127.0.0.1:6419
-    nnoremap <leader>gr :Grip<CR>
-
     " Put spaces around equal signs
     command! SpaceAroundEqual :%s/\s\@<!=\+\s\@!/ \0 /g
-
-    " Clear the registers
-    command! WipeReg for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor
-
-    " Allow some cool cat work of files in Vim
-    command! -bar Fcat :cd %:p:h | args*.md
 
     function! NextClosedFold(dir)
         let cmd = 'norm!z' . a:dir
