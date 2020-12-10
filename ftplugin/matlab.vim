@@ -23,6 +23,9 @@ set cpo-=C
 setlocal fo+=croql
 setlocal comments=:%>,:%
 
+set tags+=/home/kezra/GIT/daf/.git/tags
+set tags+=/home/kezra/GIT/daf/+itar/.git/tags
+
 if exists("loaded_matchit")
   let s:conditionalEnd = '\([-+{\*\:(\/]\s*\)\@<!\<end\>\(\s*[-+}\:\*\/)]\)\@!'
   let b:match_words = '\<classdef\>\|\<methods\>\|\<events\>\|\<properties\>\|\<if\>\|\<while\>\|\<for\>\|\<switch\>\|\<try\>\|\<function\>:' . s:conditionalEnd
