@@ -34,6 +34,7 @@ endif
 " Plugins {{{
     call plug#begin('~/.vim/plugged')
         Plug 'junegunn/vim-plug'
+        Plug 'puremourning/vimspector'
         Plug 'tommcdo/vim-exchange'
         Plug 'chrisbra/Colorizer'
         Plug 'SirVer/ultisnips', { 'on': [] }
