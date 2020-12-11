@@ -1,5 +1,6 @@
 " so ~/.vim/config/ale.vim
 so ~/.vim/config/fzf.vim
+so ~/.vim/config/fzf-preview.vim
 so ~/.vim/config/lightline.vim
 so ~/.vim/config/tagbar.vim
 so ~/.vim/config/vim-better-whitespace.vim

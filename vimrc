@@ -36,6 +36,7 @@ endif
         Plug 'junegunn/vim-plug'
         Plug 'puremourning/vimspector'
         Plug 'ulwlu/elly.vim'
+        Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'release', 'do': ':UpdateRemotePlugins' }
         Plug 'tommcdo/vim-exchange'
         Plug 'chrisbra/Colorizer'
         Plug 'SirVer/ultisnips', { 'on': [] }
