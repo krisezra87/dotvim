@@ -66,6 +66,7 @@ endif
         Plug 'christoomey/vim-tmux-navigator'
         Plug 'neoclide/coc.nvim', {'branch': 'release'}
         Plug 'neoclide/vim-node-rpc'
+        Plug 'tools-life/taskwiki'
         " Plug 'gioele/vim-autoswap'
         " Plug 'sheerun/vim-wombat-scheme'
         " Plug 'junegunn/vim-easy-align'
