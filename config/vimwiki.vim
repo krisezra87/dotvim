@@ -9,6 +9,9 @@ let core_wiki.path = '~/.vimwiki/'
 let core_wiki.syntax = 'markdown'
 let core_wiki.ext = '.md'
 
+" Use .md extension for new links by default
+let g:vimwiki_markdown_link_ext = 1
+
 " Prevent write on quit if there are mods
 let g:vimwiki_autowriteall = 0
 
