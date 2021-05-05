@@ -248,8 +248,10 @@ endif
         tnoremap OB <down>
     endif
 
+    command! -range Gpopupblame call setbufvar(winbufnr(popup_atcursor(systemlist("git -C ".. shellescape(expand('%:p:h')) .." log --no-merges -n 1 -L <line1>,<line2>:" .. shellescape(resolve(expand("%:t")))), { "padding": [1,1,1,1], "pos": "botleft", "wrap": 0 })), "&filetype", "git")
+
     " Use <Leader>g to show git blame for current line
-    nmap <silent><Leader>g :call setbufvar(winbufnr(popup_atcursor(split(system("git log -n 1 -L " . line(".") . ",+1:" . expand("%:p")), "\n"), { "padding": [1,1,1,1], "pos": "botleft", "wrap": 0 })), "&filetype", "git")<CR>
+    nmap <silent><Leader>g :Gpopupblame<CR>
 
     " Fix up indents so that indenting a block is easy
     xnoremap < <gv
