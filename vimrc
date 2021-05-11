@@ -215,13 +215,13 @@ endif
 " netrw {{{
     let g:netrw_liststyle = 4
     let g:netrw_banner = 0
+    let g:netrw_altfile=1
 " }}}
 
 " Mappings {{{
     let mapleader="\\"
     let maplocalleader="\\"
 
-    let g:netrw_altfile=1
 
     nnoremap <BS> <C-^>
     nnoremap <C-J> <C-W>j
